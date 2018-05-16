@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SmartHomeManager"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#FF72AADA">
+        <Label>Proba proba</Label>
     </Grid>
 </Window>
