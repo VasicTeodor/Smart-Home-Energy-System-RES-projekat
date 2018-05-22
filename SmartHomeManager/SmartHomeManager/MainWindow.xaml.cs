@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,32 @@ namespace SmartHomeManager
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
+
+            DataContext = this;
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void buttonOn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonOff_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
