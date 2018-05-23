@@ -21,6 +21,18 @@
         <DataTemplate DataType="{x:Type viewModel:SolarPanelViewModel}">
             <views:SolarPanelView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:BatteryViewModel}">
+            <views:BatteryView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:UtilityViewModel}">
+            <views:UtilityView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:ConsumersViewModel}">
+            <views:ConsumersView/>
+        </DataTemplate>
     </Window.Resources>
 
 
@@ -107,7 +119,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="180,150,0,0" VerticalAlignment="Top" Width="100" Height="100">
+        <Button HorizontalAlignment="Left" Margin="180,150,0,0" VerticalAlignment="Top" Width="100" Height="100" Command="{Binding NavCommand}" CommandParameter="consumers">
 
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -117,7 +129,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="336,262,0,0" VerticalAlignment="Top" Width="100" Height="100">
+        <Button HorizontalAlignment="Left" Margin="336,262,0,0" VerticalAlignment="Top" Width="100" Height="100" Command="{Binding NavCommand}" CommandParameter="utility">
 
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -127,7 +139,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="289,454,0,0" VerticalAlignment="Top" Width="102" Height="100" Command="{Binding NavCommand}" CommandParameter="home">
+        <Button HorizontalAlignment="Left" Margin="289,454,0,0" VerticalAlignment="Top" Width="102" Height="100" Command="{Binding NavCommand}" CommandParameter="battery">
 
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SmartHomeManager.Views.SolarPanelView"
+﻿<UserControl x:Class="SmartHomeManager.Views.ConsumersView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -11,7 +11,7 @@
     <Grid>
         <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="524" Stroke="Transparent" VerticalAlignment="Top" Width="742"/>
 
-        <DataGrid  x:Name="dataGridShes" ItemsSource="{Binding Panels}" BorderBrush="#FFD8D8D8" BorderThickness="4" RowHeight="170"  RowBackground="Transparent" HorizontalAlignment="Left" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" Height="524" VerticalAlignment="Top" Width="742" Background="Transparent" Foreground="White">
+        <DataGrid  x:Name="dataGridShes" ItemsSource="{Binding Consumers}" BorderBrush="#FFD8D8D8" BorderThickness="4" RowHeight="170"  RowBackground="Transparent" HorizontalAlignment="Left" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" Height="524" VerticalAlignment="Top" Width="742" Background="Transparent" Foreground="White">
 
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
@@ -32,10 +32,10 @@
                             <StackPanel Orientation="Horizontal" Width="725" Height="170">
                                 <StackPanel Width="500" Height="170">
                                     <TextBlock Text="{Binding Name}" FontSize="26" FontFamily="Segoe UI" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                    <TextBlock Text="{Binding MaxPower}" FontSize="16" FontFamily="Segoe UI" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding Consumption}" FontSize="16" FontFamily="Segoe UI" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
                                 </StackPanel>
                                 <StackPanel Width="225" Height="170">
-                                    <Image Source="../images/s49.png" Width="100" Height="90" Stretch="Fill"/>
+                                    <Image Source="{Binding Image}" Width="100" Height="90" Stretch="Fill"/>
                                     <StackPanel Orientation="Horizontal" Width="225" Height="80">
                                         <Button x:Name="buttonOn" BorderBrush="Transparent" Background="#FF63BF63" Height="40" Width="100" Content="ON" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="White"/>
                                         <Rectangle Fill="Transparent" Width="10" Height="40"/>
@@ -43,10 +43,6 @@
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
-
-
-
-
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

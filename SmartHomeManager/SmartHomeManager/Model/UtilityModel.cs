@@ -7,41 +7,40 @@ using System.Threading.Tasks;
 
 namespace SmartHomeManager.Model
 {
-    public class SolarPanelModel
+    public class UtilityModel
     {
     }
-
-    public class SolarPanel : INotifyPropertyChanged
+    public class Utility : INotifyPropertyChanged
     {
-        private string name;
-        private double maxPower;
+        private double power;
+        private double price;
 
-        public string Name
+        public double Power
         {
-            get { return name; }
+            get { return power; }
             set
             {
-                if (name != value)
+                if (power != value)
                 {
-                    name = value;
-                    RaisePropertyChanged("Name");
+                    power = value;
+                    RaisePropertyChanged("Power");
                 }
             }
         }
 
-        public double MaxPower
+        public double Price
         {
-            get { return maxPower; }
+            get { return price; }
             set
             {
-                if (maxPower != value)
+                if (price != value)
                 {
-                    maxPower = value;
-                    RaisePropertyChanged("MaxPower");
+                    price = value;
+                    RaisePropertyChanged("Price");
                 }
             }
         }
-       
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string property)
@@ -52,4 +51,5 @@ namespace SmartHomeManager.Model
             }
         }
     }
+
 }

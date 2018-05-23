@@ -54,14 +54,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\BatteryModel.cs" />
+    <Compile Include="Model\ConsumersModel.cs" />
     <Compile Include="Model\SolarPanelModel.cs" />
+    <Compile Include="Model\UtilityModel.cs" />
+    <Compile Include="SHES.cs" />
+    <Compile Include="ViewModel\BatteryViewModel.cs" />
+    <Compile Include="ViewModel\ConsumersViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\SolarPanelViewModel.cs" />
+    <Compile Include="ViewModel\UtilityViewModel.cs" />
+    <Compile Include="Views\BatteryView.xaml.cs">
+      <DependentUpon>BatteryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConsumersView.xaml.cs">
+      <DependentUpon>ConsumersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SolarPanelView.xaml.cs">
       <DependentUpon>SolarPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityView.xaml.cs">
+      <DependentUpon>UtilityView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VML\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -77,11 +93,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BatteryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConsumersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SolarPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

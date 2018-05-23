@@ -9,9 +9,13 @@ namespace SmartHomeManager
 {
     public class MainWindowViewModel : BindableBase
     {
+        //vrednosti sa servera primacemo u view modelima!
         public MyICommand<string> NavCommand { get; private set; }
         private SolarPanelViewModel solarPanelViewModel = new SolarPanelViewModel();
         private HomeViewModel homeVIewModel = new HomeViewModel();
+        private BatteryViewModel batteryViewModel = new BatteryViewModel();
+        private UtilityViewModel utilityViewModel = new UtilityViewModel();
+        private ConsumersViewModel consumerViewModel = new ConsumersViewModel();
         private BindableBase currentViewModel;
 
         public MainWindowViewModel()
@@ -38,6 +42,15 @@ namespace SmartHomeManager
                     break;
                 case "solarPanel":
                     CurrentViewModel = solarPanelViewModel;
+                    break;
+                case "battery":
+                    CurrentViewModel = batteryViewModel;
+                    break;
+                case "utility":
+                    CurrentViewModel = utilityViewModel;
+                    break;
+                case "consumers":
+                    CurrentViewModel = consumerViewModel;
                     break;
             }
         }

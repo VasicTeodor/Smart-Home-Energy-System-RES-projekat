@@ -7,14 +7,29 @@ using System.Threading.Tasks;
 
 namespace SmartHomeManager.Model
 {
-    public class SolarPanelModel
+    public class BatteryModel
     {
     }
 
-    public class SolarPanel : INotifyPropertyChanged
+    public class Battery : INotifyPropertyChanged
     {
         private string name;
         private double maxPower;
+        private double capacity;
+
+        public double Capacity
+        {
+            get { return capacity; }
+            set
+            {
+                if (capacity != value)
+                {
+                    capacity = value;
+                    RaisePropertyChanged("Capacity");
+                }
+            }
+        }
+
 
         public string Name
         {
@@ -41,7 +56,7 @@ namespace SmartHomeManager.Model
                 }
             }
         }
-       
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string property)
