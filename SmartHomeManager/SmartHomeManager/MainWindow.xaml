@@ -17,7 +17,6 @@
         <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
             <views:HomeView/>
         </DataTemplate>
-
         <DataTemplate DataType="{x:Type viewModel:SolarPanelViewModel}">
             <views:SolarPanelView/>
         </DataTemplate>
@@ -77,19 +76,24 @@
         <Image Source="images/s64.png" HorizontalAlignment="Left" Height="100" Margin="86,454,0,0" VerticalAlignment="Top" Width="100"/>
         <Image Source="images/s61.png" HorizontalAlignment="Left" Height="100" Margin="180,319,0,0" VerticalAlignment="Top" Width="100"/>
         <Label Content="Smart Home Energy System" HorizontalAlignment="Left" Margin="10,642,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Button Content="EXIT" HorizontalAlignment="Left" Margin="1140,15,0,0" VerticalAlignment="Top" Width="90" Height="90" Click="Button_Click">
 
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Ellipse Stroke="Transparent" StrokeThickness="4" Fill="Black" Opacity="0.5"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
         <!--
-        <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="524" Margin="488,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="742"/>
+        <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="250" Margin="488,140,0,0" Stroke="White" StrokeThickness="4" VerticalAlignment="Top" Width="742"/>
+        <Grid Background="Transparent" HorizontalAlignment="Left" Height="250" Margin="488,140,0,0" VerticalAlignment="Top" Width="742">
+            <Ellipse Fill="#FF55A938" HorizontalAlignment="Left" Height="136" Margin="528,25,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="150"/>
+
+            <Label Content="Solar panel" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
+            <Label Content="Generating" HorizontalAlignment="Left" Margin="541,52,0,0" VerticalAlignment="Top" Height="43" Width="112" Foreground="White" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="580,84,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Height="54" Width="54" Foreground="White" FontSize="48"/>
+            <Label Content="kW" HorizontalAlignment="Left" Margin="609,107,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" RenderTransformOrigin="0.633,1.052"/>
+            <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="145" Margin="23,95,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="279"/>
+            <Label Content="Max power" HorizontalAlignment="Left" Margin="36,106,0,0" VerticalAlignment="Top" Height="43" Width="112" Foreground="White" FontSize="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="162,156,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Height="54" Width="54" Foreground="White" FontSize="48"/>
+            <Label Content="kW" HorizontalAlignment="Left" Margin="200,177,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" RenderTransformOrigin="0.633,1.052"/>
+
+        </Grid>
         -->
+        
         <Grid Height="524" Margin="488,140,0,0" VerticalAlignment="Top" Width="742" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -98,6 +102,7 @@
                 <ContentControl Content="{Binding CurrentViewModel}"/>
             </StackPanel>
         </Grid>
+
 
         <Button HorizontalAlignment="Left" Margin="180,319,0,0" VerticalAlignment="Top" Width="101" Height="100" Command="{Binding NavCommand}" CommandParameter="home">
 
@@ -159,5 +164,8 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <Image Source="images/s53.png" HorizontalAlignment="Left" Height="81" Margin="1140,15,0,0" VerticalAlignment="Top" Width="74" Stretch="Fill"/>
+        <Label Content="Exit" HorizontalAlignment="Left" Margin="1159,85,0,0" VerticalAlignment="Top" Width="55" Height="29" Foreground="White" FontWeight="Bold"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="1133,10,0,0" VerticalAlignment="Top" Width="90" Height="108" Click="Button_Click" Background="Black" Opacity="0.3" Foreground="White" BorderBrush="Transparent"/>
     </Grid>
 </Window>

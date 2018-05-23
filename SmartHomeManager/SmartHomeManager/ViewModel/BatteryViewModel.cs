@@ -31,8 +31,7 @@ namespace SmartHomeManager.ViewModel
         {
             ObservableCollection<Battery> bateries = new ObservableCollection<Battery>();
 
-            bateries.Add(new Battery { Name = "Battery A", MaxPower = 5.43, Capacity = 50 });
-            bateries.Add(new Battery { Name = "Battery B", MaxPower = 3.14, Capacity = 100 });
+            bateries.Add(new Battery { Name = "Battery A", MaxPower = 5, Capacity = 2 });
 
             Batteries = bateries;
         }

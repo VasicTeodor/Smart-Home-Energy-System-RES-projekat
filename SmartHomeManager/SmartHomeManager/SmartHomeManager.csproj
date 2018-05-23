@@ -173,6 +173,23 @@
     <Resource Include="images\s63.png" />
     <Resource Include="images\s64.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\s53.png" />
+    <Resource Include="images\s54.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\s55.png" />
+    <Resource Include="images\s56.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\s58.png" />
+    <Resource Include="images\s59.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\s70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\s71.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

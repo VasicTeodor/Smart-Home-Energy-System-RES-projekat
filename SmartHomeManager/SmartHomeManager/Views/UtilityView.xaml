@@ -11,7 +11,7 @@
     <Grid>
         <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="524" Stroke="Transparent" VerticalAlignment="Top" Width="742"/>
 
-        <DataGrid  x:Name="dataGridShes" ItemsSource="{Binding Utilities}" BorderBrush="#FFD8D8D8" BorderThickness="4" RowHeight="170"  RowBackground="Transparent" HorizontalAlignment="Left" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" Height="524" VerticalAlignment="Top" Width="742" Background="Transparent" Foreground="White">
+        <DataGrid  x:Name="dataGridShes" ItemsSource="{Binding Utilities}" BorderBrush="#FFD8D8D8" BorderThickness="4" RowHeight="524"  RowBackground="Transparent" HorizontalAlignment="Left" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" Height="524" VerticalAlignment="Top" Width="742" Background="Transparent" Foreground="White">
 
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
@@ -29,20 +29,22 @@
 
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Width="725" Height="170">
-                                <StackPanel Width="500" Height="170">
-                                    <TextBlock Text="{Binding Power}" FontSize="26" FontFamily="Segoe UI" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                    <TextBlock Text="{Binding Price}" FontSize="16" FontFamily="Segoe UI" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                                </StackPanel>
-                                <StackPanel Width="225" Height="170">
-                                    <Image Source="../images/s49.png" Width="100" Height="90" Stretch="Fill"/>
-                                    <StackPanel Orientation="Horizontal" Width="225" Height="80">
-                                        <Button x:Name="buttonOn" BorderBrush="Transparent" Background="#FF63BF63" Height="40" Width="100" Content="ON" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="White"/>
-                                        <Rectangle Fill="Transparent" Width="10" Height="40"/>
-                                        <Button x:Name="buttonOff" BorderBrush="Transparent" Background="Black" Opacity="0.5" Height="40" Width="100" Content="OFF" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </StackPanel>
+                            <Grid Background="Transparent" HorizontalAlignment="Left" Height="524" VerticalAlignment="Top" Width="742">
+                                <Ellipse Fill="#FF55A938" HorizontalAlignment="Left" Height="169" Margin="361,40,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="179"/>
+
+                                <Label Content="Utility" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
+                                <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="247" Margin="23,250,0,0" Stroke="Transparent" StrokeThickness="2"  VerticalAlignment="Top" Width="517"/>
+                                <Image Source="../images/s58.png" HorizontalAlignment="Left" Height="411" Margin="552,40,0,0" VerticalAlignment="Top" Width="172" Stretch="Fill"/>
+                                <Label Content="Exchange power :" HorizontalAlignment="Left" Margin="36,262,0,0" VerticalAlignment="Top" Height="46" Width="196" Foreground="White" FontSize="24"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="286,378,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Height="54" Width="54" Foreground="White" FontSize="48"/>
+                                <Label Content="kW" HorizontalAlignment="Left" Margin="332,386,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
+                                <Label Content="Generating" HorizontalAlignment="Left" Margin="586,451,0,0" VerticalAlignment="Top" Height="46" Width="108" Foreground="White" FontSize="20"/>
+                                <Label Content="Energy price" HorizontalAlignment="Left" Margin="380,75,0,0" VerticalAlignment="Top" Height="46" Width="128" Foreground="White" FontSize="20"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="434,113,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Height="54" Width="54" Foreground="White" FontSize="48"/>
+                                <Label Content="$" HorizontalAlignment="Left" Margin="463,121,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" RenderTransformOrigin="0.633,1.052"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="237,267,0,0" TextWrapping="Wrap" Text="positive" VerticalAlignment="Top" Height="46" Width="110" Foreground="White" FontSize="24"/>
+
+                            </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
