@@ -31,7 +31,7 @@ namespace SmartHomeManager.ViewModel
         {
             ObservableCollection<Utility> utilities = new ObservableCollection<Utility>();
 
-            utilities.Add(new Utility { Power = 2341.421, Price = 100.10  });
+            utilities.Add(new Utility { Power = 2341.42, Price = 100.10  });
 
             Utilities = utilities;
         }

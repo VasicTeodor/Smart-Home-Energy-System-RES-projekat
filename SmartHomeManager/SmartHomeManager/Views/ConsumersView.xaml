@@ -34,8 +34,8 @@
 
                                 <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
                                 <Label Content="Consuming" HorizontalAlignment="Left" Margin="585,50,0,0" VerticalAlignment="Top" Height="43" Width="112" Foreground="White" FontSize="18"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="624,74,0,0" TextWrapping="Wrap" Text="{Binding Consumption}" VerticalAlignment="Top" Height="54" Width="54" Foreground="White" FontSize="48"/>
-                                <Label Content="kW" HorizontalAlignment="Left" Margin="653,95,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" RenderTransformOrigin="0.633,1.052"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="595,83,0,0" TextWrapping="Wrap" Text="{Binding Consumption}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
+                                <Label Content="kW" HorizontalAlignment="Left" Margin="655,94,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" RenderTransformOrigin="0.633,1.052"/>
                                 <Image Source="../images/s71.png" HorizontalAlignment="Left" Height="152" Margin="362,25,0,0" VerticalAlignment="Top" Width="174" Stretch="Fill"/>
                                 <Button x:Name="buttonOn" BorderBrush="Transparent" Background="#FF63BF63" Height="40" Width="100" Content="ON" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="White" Margin="349,172,293,38"/>
                                 <Button x:Name="buttonOff" BorderBrush="Transparent" Background="Black" Opacity="0.7" Height="40" Width="100" Content="OFF" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold" Margin="454,172,188,38"/>

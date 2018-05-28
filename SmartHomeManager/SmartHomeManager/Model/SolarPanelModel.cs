@@ -15,6 +15,21 @@ namespace SmartHomeManager.Model
     {
         private string name;
         private double maxPower;
+        private double currentPower;
+
+        public double CurrentPower
+        {
+            get { return currentPower; }
+            set
+            {
+                if (currentPower != value)
+                {
+                    currentPower = value;
+                    RaisePropertyChanged("CurrentPower");
+                }
+            }
+        }
+
 
         public string Name
         {

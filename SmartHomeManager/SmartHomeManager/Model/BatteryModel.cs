@@ -16,6 +16,22 @@ namespace SmartHomeManager.Model
         private string name;
         private double maxPower;
         private double capacity;
+        private double capacityMin;
+        private Enums.BatteryState state;
+        public double MaxCapacity { get; set; }
+
+        public Enums.BatteryState State
+        {
+            get { return state; }
+            set
+            {
+                if (state != value)
+                {
+                    state = value;
+                    RaisePropertyChanged("State");
+                }
+            }
+        }
 
         public double Capacity
         {
@@ -26,6 +42,19 @@ namespace SmartHomeManager.Model
                 {
                     capacity = value;
                     RaisePropertyChanged("Capacity");
+                }
+            }
+        }
+
+        public double CapacityMin
+        {
+            get { return capacityMin; }
+            set
+            {
+                if (capacityMin != value)
+                {
+                    capacityMin = value;
+                    RaisePropertyChanged("CapacityMin");
                 }
             }
         }
@@ -56,6 +85,8 @@ namespace SmartHomeManager.Model
                 }
             }
         }
+
+        //public Enums.BatteryState State { get => state; set => state = value; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

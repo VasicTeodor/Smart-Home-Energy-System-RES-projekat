@@ -17,11 +17,13 @@ namespace SmartHomeManager
         private UtilityViewModel utilityViewModel = new UtilityViewModel();
         private ConsumersViewModel consumerViewModel = new ConsumersViewModel();
         private BindableBase currentViewModel;
+        private SHES shes;
 
         public MainWindowViewModel()
         {
             NavCommand = new MyICommand<string>(OnNav);
             CurrentViewModel = homeVIewModel;
+            shes = new SHES(batteryViewModel, utilityViewModel, solarPanelViewModel, consumerViewModel);
         }
 
         public BindableBase CurrentViewModel
