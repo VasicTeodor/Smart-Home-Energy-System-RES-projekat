@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SmartHomeManager.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,10 +23,9 @@ namespace SmartHomeManager
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        
         public MainWindow()
         {
-
             DataContext = this;
             InitializeComponent();
         }
@@ -48,5 +49,6 @@ namespace SmartHomeManager
         {
 
         }
+
     }
 }

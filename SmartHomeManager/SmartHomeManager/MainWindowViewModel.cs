@@ -12,7 +12,7 @@ namespace SmartHomeManager
         //vrednosti sa servera primacemo u view modelima!
         public MyICommand<string> NavCommand { get; private set; }
         private SolarPanelViewModel solarPanelViewModel = new SolarPanelViewModel();
-        private HomeViewModel homeVIewModel = new HomeViewModel();
+        private HomeViewModel homeViewModel = new HomeViewModel();
         private BatteryViewModel batteryViewModel = new BatteryViewModel();
         private UtilityViewModel utilityViewModel = new UtilityViewModel();
         private ConsumersViewModel consumerViewModel = new ConsumersViewModel();
@@ -22,7 +22,7 @@ namespace SmartHomeManager
         public MainWindowViewModel()
         {
             NavCommand = new MyICommand<string>(OnNav);
-            CurrentViewModel = homeVIewModel;
+            CurrentViewModel = homeViewModel;
             shes = new SHES(batteryViewModel, utilityViewModel, solarPanelViewModel, consumerViewModel);
         }
 
@@ -40,7 +40,7 @@ namespace SmartHomeManager
             switch (destination)
             {
                 case "home":
-                    CurrentViewModel = homeVIewModel;
+                    CurrentViewModel = homeViewModel;
                     break;
                 case "solarPanel":
                     CurrentViewModel = solarPanelViewModel;

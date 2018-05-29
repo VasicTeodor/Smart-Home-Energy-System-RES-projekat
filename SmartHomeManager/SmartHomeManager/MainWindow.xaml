@@ -55,7 +55,7 @@
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="307,45,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="196"/>
         <Image Source="images/s23.png" HorizontalAlignment="Left" Height="59" Margin="307,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
         <Label Content="Charging" HorizontalAlignment="Left" Margin="336,47,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
-        <Label Content="4.50" HorizontalAlignment="Left" Margin="425,79,0,0" VerticalAlignment="Top" Width="47" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
+        <Label x:Name="labelBattery" Content="5.14" HorizontalAlignment="Left" Margin="425,79,0,0" VerticalAlignment="Top" Width="47" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
         <Label Content="kW" HorizontalAlignment="Left" Margin="470,85,0,0" VerticalAlignment="Top" Width="33" Height="24" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
         <Label Content="Utility" HorizontalAlignment="Left" Margin="601,13,0,0" VerticalAlignment="Top" Width="154" Height="29" Foreground="White" FontWeight="Bold" FontSize="14"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="601,45,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="196"/>
@@ -93,13 +93,13 @@
 
         </Grid>
         -->
-        
+
         <Grid Height="524" Margin="488,140,0,0" VerticalAlignment="Top" Width="742" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <ContentControl Content="{Binding CurrentViewModel}"/>
+                <ContentControl Name="control" Content="{Binding CurrentViewModel}"/>
             </StackPanel>
         </Grid>
 

@@ -44,7 +44,7 @@
                                 <TextBlock HorizontalAlignment="Left" Margin="392,150,0,0" TextWrapping="Wrap" Text="{Binding CapacityMin}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="48"/>
                                 <Label Content="h" HorizontalAlignment="Left" Margin="476,121,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" RenderTransformOrigin="0.633,1.052"/>
                                 <Label Content="min" HorizontalAlignment="Left" Margin="476,165,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" RenderTransformOrigin="0.633,1.052"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="392,200,0,0" TextWrapping="Wrap" Text="{Binding State}" VerticalAlignment="Top" Height="54" Width="300" Foreground="White" FontSize="48"/>
+                                <TextBlock x:Name="txtStatus" HorizontalAlignment="Left" Margin="392,200,0,0" TextWrapping="Wrap" Text="{Binding State}" VerticalAlignment="Top" Height="54" Width="300" Foreground="White" FontSize="48"/>
 
                             </Grid>
                         </DataTemplate>

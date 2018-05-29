@@ -37,17 +37,26 @@ namespace SmartHomeManager
             {
                 while (true)
                 {
-                    if (Int32.Parse(DateTime.Now.ToString("HH")) >= 0 && Int32.Parse(DateTime.Now.ToString("HH")) <= 6)
+                    if (Int32.Parse(DateTime.Now.ToString("HH")) >= 0 && Int32.Parse(DateTime.Now.ToString("HH")) <= 20)
                     {
-                        battery.StartChraging();
+                        lock (BatteryViewModel.Batteries)
+                        {
+                             battery.StartChraging();
+                        }
                     }
-                    else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 21 && Int32.Parse(DateTime.Now.ToString("HH")) <= 24)
+                    else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 11 && Int32.Parse(DateTime.Now.ToString("HH")) <= 12)
                     {
-                        battery.StartDischraging();
+                        lock (BatteryViewModel.Batteries)
+                        {
+                            battery.StartDischraging();
+                        }
                     }
                     else
                     {
-                        battery.Idlle();
+                        lock (BatteryViewModel.Batteries)
+                        {
+                            battery.Idlle();
+                        }
                     }
 
                     Thread.Sleep(1000);

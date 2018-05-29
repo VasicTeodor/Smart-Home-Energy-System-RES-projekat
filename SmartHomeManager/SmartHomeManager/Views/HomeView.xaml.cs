@@ -23,6 +23,7 @@ namespace SmartHomeManager.Views
         public HomeView()
         {
             InitializeComponent();
+            this.DataContext = new SmartHomeManager.ViewModel.HomeViewModel();
         }
     }
 }

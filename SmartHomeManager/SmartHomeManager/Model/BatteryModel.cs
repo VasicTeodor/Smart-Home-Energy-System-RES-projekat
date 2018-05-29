@@ -15,10 +15,13 @@ namespace SmartHomeManager.Model
     {
         private string name;
         private double maxPower;
-        private double capacity;
-        private double capacityMin;
-        private Enums.BatteryState state;
+        public static double capacity = SHES.batteryCapacity;
+        public static double capacityMin = SHES.batteryCapacityMin;
+        private Enums.BatteryState state = SHES.batteryState;
         public double MaxCapacity { get; set; }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Enums.BatteryState State
         {
@@ -85,10 +88,6 @@ namespace SmartHomeManager.Model
                 }
             }
         }
-
-        //public Enums.BatteryState State { get => state; set => state = value; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string property)
         {
