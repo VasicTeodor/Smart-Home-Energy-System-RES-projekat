@@ -18,6 +18,8 @@ namespace SmartHomeManager.Model
         private string name;
         private string image;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string Image
         {
             get { return image; }
@@ -71,7 +73,6 @@ namespace SmartHomeManager.Model
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string property)
         {

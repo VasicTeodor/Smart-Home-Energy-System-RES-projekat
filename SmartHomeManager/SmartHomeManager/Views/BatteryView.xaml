@@ -32,19 +32,18 @@
                             <Grid Background="Transparent" HorizontalAlignment="Left" Height="524" VerticalAlignment="Top" Width="742">
                                 <Ellipse Fill="#FF55A938" HorizontalAlignment="Left" Height="169" Margin="361,40,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="179"/>
 
-                                <Label Content="Battery" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
+                                <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
                                 <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="247" Margin="23,250,0,0" Stroke="Transparent" StrokeThickness="2"  VerticalAlignment="Top" Width="517"/>
                                 <Image Source="../images/s56.png" HorizontalAlignment="Left" Height="449" Margin="493,10,-57,0" VerticalAlignment="Top" Width="306" Stretch="Fill"/>
                                 <Label Content="Max power" HorizontalAlignment="Left" Margin="36,262,0,0" VerticalAlignment="Top" Height="46" Width="304" Foreground="White" FontSize="24"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="240,378,0,0" TextWrapping="Wrap" Text="{Binding MaxPower}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="48"/>
                                 <Label Content="kW" HorizontalAlignment="Left" Margin="332,386,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
-                                <Label Content="Charging" HorizontalAlignment="Left" Margin="590,451,0,0" VerticalAlignment="Top" Height="46" Width="94" Foreground="White" FontSize="20"/>
-                                <Label Content="Capacity" HorizontalAlignment="Left" Margin="380,75,0,0" VerticalAlignment="Top" Height="46" Width="108" Foreground="White" FontSize="20"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="392,113,0,0" TextWrapping="Wrap" Text="{Binding Capacity}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="48"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="392,150,0,0" TextWrapping="Wrap" Text="{Binding CapacityMin}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="48"/>
-                                <Label Content="h" HorizontalAlignment="Left" Margin="476,121,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" RenderTransformOrigin="0.633,1.052"/>
-                                <Label Content="min" HorizontalAlignment="Left" Margin="476,165,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" RenderTransformOrigin="0.633,1.052"/>
-                                <TextBlock x:Name="txtStatus" HorizontalAlignment="Left" Margin="392,200,0,0" TextWrapping="Wrap" Text="{Binding State}" VerticalAlignment="Top" Height="54" Width="300" Foreground="White" FontSize="48"/>
+                                <Label Content="{Binding State}" HorizontalAlignment="Left" Margin="570,451,0,0" VerticalAlignment="Top" Height="46" Width="150" Foreground="White" FontSize="20"/>
+                                <Label Content="Capacity" HorizontalAlignment="Left" Margin="380,60,0,0" VerticalAlignment="Top" Height="46" Width="108" Foreground="White" FontSize="20"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="380,113,0,0" TextWrapping="Wrap" Text="{Binding Capacity}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="445,113,0,0" TextWrapping="Wrap" Text="{Binding CapacityMin}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
+                                <Label Content="h" HorizontalAlignment="Left" Margin="420,121,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" RenderTransformOrigin="0.633,1.052"/>
+                                <Label Content="min" HorizontalAlignment="Left" Margin="480,121,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" RenderTransformOrigin="0.633,1.052"/>
 
                             </Grid>
                         </DataTemplate>

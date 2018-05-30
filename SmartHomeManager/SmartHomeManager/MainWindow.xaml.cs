@@ -32,6 +32,7 @@ namespace SmartHomeManager
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            SHES.shutDown = true;
             this.Close();
         }
 

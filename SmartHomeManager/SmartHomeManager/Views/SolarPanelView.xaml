@@ -32,9 +32,9 @@
                             <Grid Background="Transparent" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="742">
                                 <Ellipse Fill="#FF55A938" HorizontalAlignment="Left" Height="136" Margin="528,25,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="150"/>
 
-                                <Label Content="Solar panel" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
+                                <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
                                 <Label Content="Generating" HorizontalAlignment="Left" Margin="541,52,0,0" VerticalAlignment="Top" Height="43" Width="112" Foreground="White" FontSize="18"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="558,91,0,0" TextWrapping="Wrap" Text="2.15" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="558,91,0,0" TextWrapping="Wrap" Text="{Binding CurrentPower}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
                                 <Label Content="kW" HorizontalAlignment="Left" Margin="618,100,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" RenderTransformOrigin="0.633,1.052"/>
                                 <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="145" Margin="23,95,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="279"/>
                                 <Label Content="Max power" HorizontalAlignment="Left" Margin="36,106,0,0" VerticalAlignment="Top" Height="43" Width="112" Foreground="White" FontSize="20"/>

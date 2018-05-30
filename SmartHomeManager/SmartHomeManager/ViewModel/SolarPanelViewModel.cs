@@ -11,12 +11,13 @@ namespace SmartHomeManager.ViewModel
 {
     public class SolarPanelViewModel : BindableBase
     {
-        public ObservableCollection<SolarPanel> Panels { get; set; }
+        public static ObservableCollection<SolarPanel> Panels { get; set; }
         private SolarPanel selectedPanel;
         private double currentPowerPanels;
 
         public SolarPanelViewModel()
         {
+            Panels = new ObservableCollection<SolarPanel>();
             LoadPanels();
             SendPowerToShes();
         }
@@ -32,68 +33,88 @@ namespace SmartHomeManager.ViewModel
 
         public void LoadPanels()
         {
-            ObservableCollection<SolarPanel> panels = new ObservableCollection<SolarPanel>();
-
-            panels.Add(new SolarPanel { Name = "Panel A", MaxPower = 5.43 });
-            panels.Add(new SolarPanel { Name = "Panel B", MaxPower = 3.14 });
-
-            Panels = panels;
+            lock (Panels)
+            {
+                Panels.Add(new SolarPanel { Name = "Solar Panel A", MaxPower = 5.43, CurrentPower = 5.3 });
+                Panels.Add(new SolarPanel { Name = "Solar Panel B", MaxPower = 3.14, CurrentPower = 4.34 });
+            }
         }
 
         public void SendPowerToShes()
         {
             new Thread(() =>
             {
-                while (true)
+                while (!SHES.shutDown)
                 {
                     currentPowerPanels = 0;
 
                     if (Int32.Parse(DateTime.Now.ToString("HH")) >= 20 || Int32.Parse(DateTime.Now.ToString("HH")) < 6)
                     {
-                        foreach (var p in Panels)
+                        lock (Panels)
                         {
-                            p.CurrentPower += p.MaxPower * 0;
+                            foreach (var p in Panels)
+                            {
+                                p.CurrentPower = p.MaxPower * 0;
+                            }
                         }
                     }
                     else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 6 && Int32.Parse(DateTime.Now.ToString("HH")) < 8)
                     {
-                        foreach (var p in Panels)
+                        lock (Panels)
                         {
-                            p.CurrentPower += p.MaxPower * (20 / 100);
+                            foreach (var p in Panels)
+                            {
+                                p.CurrentPower = p.MaxPower * (20 / 100);
+                            }
                         }
                     }
                     else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 8 && Int32.Parse(DateTime.Now.ToString("HH")) < 11)
                     {
-                        foreach (var p in Panels)
+                        lock (Panels)
                         {
-                            p.CurrentPower += p.MaxPower * (50 / 100);
+                            foreach (var p in Panels)
+                            {
+                                p.CurrentPower = p.MaxPower * (50 / 100);
+                            }
                         }
                     }
                     else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 11 && Int32.Parse(DateTime.Now.ToString("HH")) < 16)
                     {
-                        foreach (var p in Panels)
+                        lock (Panels)
                         {
-                            p.CurrentPower += p.MaxPower;
+                            foreach (var p in Panels)
+                            {
+                                p.CurrentPower = p.MaxPower;
+                            }
                         }
                     }
                     else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 16 && Int32.Parse(DateTime.Now.ToString("HH")) < 18)
                     {
-                        foreach (var p in Panels)
+                        lock (Panels)
                         {
-                            p.CurrentPower += p.MaxPower * (50 / 100);
+                            foreach (var p in Panels)
+                            {
+                                p.CurrentPower = p.MaxPower * (50 / 100);
+                            }
                         }
                     }
                     else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 18 && Int32.Parse(DateTime.Now.ToString("HH")) < 20)
                     {
-                        foreach (var p in Panels)
+                        lock (Panels)
                         {
-                            p.CurrentPower += p.MaxPower * (20 / 100);
+                            foreach (var p in Panels)
+                            {
+                                p.CurrentPower = p.MaxPower * (20 / 100);
+                            }
                         }
                     }
 
-                    foreach (var p in Panels)
+                    lock (Panels)
                     {
-                        currentPowerPanels += p.CurrentPower;
+                        foreach (var p in Panels)
+                        {
+                            currentPowerPanels += p.CurrentPower;
+                        }
                     }
 
                     SHES.solarPnaelsPower = currentPowerPanels;

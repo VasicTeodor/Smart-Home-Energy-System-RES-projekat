@@ -21,7 +21,6 @@ namespace SmartHomeManager.ViewModel
         {
             Batteries = new ObservableCollection<Battery>();
             LoadBateries();
-            //SendDataToShes();
         }
 
         public Battery SelectedBattery
@@ -41,51 +40,6 @@ namespace SmartHomeManager.ViewModel
            }
         }
 
-        private void SendDataToShes()
-        {
-            new Thread(() =>
-            {
-                while (true)
-                {
-                    if (Batteries[0].State == Enums.BatteryState.CHARGING && Batteries[0].Capacity < Batteries[0].MaxCapacity)
-                    {
-                        Batteries[0].CapacityMin++;
-
-                        if (Batteries[0].CapacityMin >= 60)
-                        {
-                            Batteries[0].Capacity++;
-                            Batteries[0].CapacityMin = 0;
-                        }
-
-                        SHES.batteryCapacity = Batteries[0].Capacity;
-                        SHES.batteryCapacityMin = Batteries[0].CapacityMin;
-                    }
-                    else if (Batteries[0].State == Enums.BatteryState.DISCHARGING && Batteries[0].Capacity > 0)
-                    {
-                        Batteries[0].CapacityMin--;
-
-                        if (Batteries[0].CapacityMin <= 0)
-                        {
-                            Batteries[0].Capacity--;
-                            Batteries[0].CapacityMin = 60;
-                        }
-
-                        SHES.batteryCapacity = Batteries[0].Capacity;
-                        SHES.batteryCapacityMin = Batteries[0].CapacityMin;
-                    }
-                    else if (Batteries[0].State == Enums.BatteryState.IDLLE)
-                    {
-                        SHES.batteryCapacity = Batteries[0].Capacity;
-                        SHES.batteryCapacityMin = Batteries[0].CapacityMin;
-                    }
-
-
-                    Thread.Sleep(1000);
-                }
-
-            }).Start();
-        }
-
         public void StartChraging()
         {
             Batteries[0].State = Enums.BatteryState.CHARGING;
@@ -103,6 +57,11 @@ namespace SmartHomeManager.ViewModel
 
                 SHES.batteryCapacity = Batteries[0].Capacity;
                 SHES.batteryCapacityMin = Batteries[0].CapacityMin;
+            }
+            else
+            {
+                Batteries[0].State = Enums.BatteryState.IDLLE;
+                SHES.batteryState = Enums.BatteryState.IDLLE;
             }
 
         }
@@ -125,6 +84,11 @@ namespace SmartHomeManager.ViewModel
 
                 SHES.batteryCapacity = Batteries[0].Capacity;
                 SHES.batteryCapacityMin = Batteries[0].CapacityMin;
+            }
+            else
+            {
+                Batteries[0].State = Enums.BatteryState.IDLLE;
+                SHES.batteryState = Enums.BatteryState.IDLLE;
             }
         }
 

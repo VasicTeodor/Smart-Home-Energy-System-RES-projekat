@@ -23,7 +23,7 @@ namespace SmartHomeManager.Views
         public BatteryView()
         {
             InitializeComponent();
-            //this.DataContext = new SmartHomeManager.ViewModel.BatteryViewModel();
+            this.DataContext = new SmartHomeManager.ViewModel.BatteryViewModel();
         }
     }
 }

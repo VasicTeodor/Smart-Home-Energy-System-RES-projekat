@@ -3,19 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SmartHomeManager.ViewModel
 {
     public class ConsumersViewModel : BindableBase
     {
-        public ObservableCollection<Consumers> Consumers { get; set; }
+        public static ObservableCollection<Consumers> Consumers { get; set; }
         private Consumers slectedConsumer;
 
         public ConsumersViewModel()
         {
-            LoadConsumers();
+            Consumers = new ObservableCollection<Consumers>();
+            //LoadConsumers();
+            Consumers = SHES.devicesList;
         }
 
         public Consumers SelectedConsumer
@@ -29,12 +34,11 @@ namespace SmartHomeManager.ViewModel
 
         public void LoadConsumers()
         {
-            ObservableCollection<Consumers> consumers = new ObservableCollection<Consumers>();
-
-            consumers.Add(new Consumers { Name = "Television", Consumption = 5.43, Id = 1, Image = "" });
-            consumers.Add(new Consumers { Name = "Fridge", Consumption = 3.14, Id = 2, Image = "" });
-
-            Consumers = consumers;
+            lock (Consumers)
+            {
+                Consumers.Add(new Consumers { Name = "Television", Consumption = 5.43, Id = 1, Image = "" });
+                Consumers.Add(new Consumers { Name = "Fridge", Consumption = 3.14, Id = 2, Image = "" });
+            }
         }
     }
 }
