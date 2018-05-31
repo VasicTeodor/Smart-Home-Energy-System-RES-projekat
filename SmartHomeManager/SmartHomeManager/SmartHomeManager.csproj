@@ -56,17 +56,22 @@
     </ApplicationDefinition>
     <Compile Include="Model\BatteryModel.cs" />
     <Compile Include="Model\ConsumersModel.cs" />
+    <Compile Include="Model\DataIO.cs" />
     <Compile Include="Model\Enums.cs" />
     <Compile Include="Model\SolarPanelModel.cs" />
     <Compile Include="Model\UtilityModel.cs" />
     <Compile Include="SHES.cs" />
     <Compile Include="ViewModel\BatteryViewModel.cs" />
+    <Compile Include="ViewModel\ChartViewModel.cs" />
     <Compile Include="ViewModel\ConsumersViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\SolarPanelViewModel.cs" />
     <Compile Include="ViewModel\UtilityViewModel.cs" />
     <Compile Include="Views\BatteryView.xaml.cs">
       <DependentUpon>BatteryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChartView.xaml.cs">
+      <DependentUpon>ChartView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ConsumersView.xaml.cs">
       <DependentUpon>ConsumersView.xaml</DependentUpon>
@@ -95,6 +100,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\BatteryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,6 +200,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\s71.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ConfigFiles\ConsumersConfig.xml" />
+    <Resource Include="ConfigFiles\SolarPanelsConfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ConfigFiles\BatteriesConfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ConfigFiles\UtilityConfig.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

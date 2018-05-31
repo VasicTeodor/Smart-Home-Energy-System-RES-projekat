@@ -1,4 +1,5 @@
-﻿using SmartHomeManager.Views;
+﻿using SmartHomeManager.Model;
+using SmartHomeManager.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

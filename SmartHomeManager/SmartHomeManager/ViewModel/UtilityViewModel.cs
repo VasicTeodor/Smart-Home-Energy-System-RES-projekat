@@ -29,11 +29,7 @@ namespace SmartHomeManager.ViewModel
 
         public void LoadUtilities()
         {
-            ObservableCollection<Utility> utilities = new ObservableCollection<Utility>();
-
-            utilities.Add(new Utility { Power = 2341.42, Price = 100.10  });
-
-            Utilities = utilities;
+            Utilities = SHES.importer.DeSerializeObject<ObservableCollection<Utility>>("../../ConfigFiles/UtilityConfig.xml");
         }
     }
 }

@@ -14,16 +14,16 @@ namespace SmartHomeManager
 {
     public class SHES
     {
+        public static DataIO importer = new DataIO();
         public static Enums.BatteryState batteryState;
+        public static double batteryPower = 0;
         public static double solarPnaelsPower = 0;
         public static double batteryCapacity = 0;
         public static double batteryCapacityMin = 0;
         public static bool shutDown = false;
-        public static ObservableCollection<Consumers> devicesList = new ObservableCollection<Consumers>()
-        {
-            new Consumers { Name = "Television", Consumption = 5.43, Id = 1, Image = "" },
-            new Consumers { Name = "Fridge", Consumption = 3.14, Id = 2, Image = "" }
-        };
+        private double wholeConsumption = 0;
+        private double importExportPower = 0;
+        public static ObservableCollection<Consumers> devicesList = new ObservableCollection<Consumers>();
 
         private BatteryViewModel battery;
         private UtilityViewModel utility;
@@ -36,6 +36,8 @@ namespace SmartHomeManager
             utility = utilityViewModel;
             solar = solarPanelViewModel;
             consumers = consumersViewModel;
+
+            LoadDevices();
 
             BatteryManagement();
             createListener();
@@ -126,7 +128,36 @@ namespace SmartHomeManager
                                     ConsumersViewModel.Consumers[deviceId].Consumption = consumption;
                                 }
                             }
-                            catch (Exception e) { throw e; }
+                            catch { }
+
+                            foreach(var cons in devicesList)
+                            {
+                                wholeConsumption += cons.Consumption;
+                            }
+
+                            if (batteryState == Enums.BatteryState.CHARGING)
+                            {
+                                importExportPower = consumption - solarPnaelsPower + batteryPower;
+                            }
+                            else
+                            {
+                                importExportPower = consumption - solarPnaelsPower - batteryPower;
+                            }
+
+                            LogService("ConsumptionLog.txt", "Consumption", consumption);
+
+                            if(batteryState == Enums.BatteryState.CHARGING)
+                            {
+                                LogService("BatteryLog.txt","Battery", 0 - batteryPower);
+                            }
+                            else
+                            {
+                                LogService("BatteryLog.txt", "Battery", batteryPower);
+                            }
+
+                            LogService("SolarPanelsLog.txt", "SolarPanel", solarPnaelsPower);
+
+                            LogService("UtilityLog.txt", "Utility", importExportPower);
                         }
                     }, null);
                 }
@@ -134,6 +165,20 @@ namespace SmartHomeManager
 
             listeningThread.IsBackground = true;
             listeningThread.Start();
+        }
+
+        private void LoadDevices()
+        {
+            devicesList = importer.DeSerializeObject<ObservableCollection<Consumers>>("../../ConfigFiles/ConsumersConfig.xml");
+        }
+
+        private void LogService(string fileName, string item, double input)
+        {
+            string logTxt = $"{item} - Value: {input} TimeStamp: {DateTime.Now.ToString()}";
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(fileName, true))
+            {
+                file.WriteLine(logTxt);
+            }
         }
     }
 }

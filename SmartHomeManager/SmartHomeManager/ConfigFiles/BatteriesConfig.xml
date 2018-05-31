@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfBattery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Battery>
+    <name>Baterry</name>
+    <maxPower>5.23</maxPower>
+    <maxCapacity>10</maxCapacity>
+    <Name>Baterry</Name>
+    <MaxPower>5.23</MaxPower>
+    <MaxCapacity>10</MaxCapacity>
+  </Battery>
+</ArrayOfBattery>

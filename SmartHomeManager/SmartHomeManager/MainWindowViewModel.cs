@@ -1,4 +1,5 @@
-﻿using SmartHomeManager.ViewModel;
+﻿using SmartHomeManager.Model;
+using SmartHomeManager.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,10 @@ namespace SmartHomeManager
         private BatteryViewModel batteryViewModel = new BatteryViewModel();
         private UtilityViewModel utilityViewModel = new UtilityViewModel();
         private ConsumersViewModel consumerViewModel = new ConsumersViewModel();
+        private ChartViewModel chartViewModel = new ChartViewModel();
         private BindableBase currentViewModel;
         private SHES shes;
-
+        
         public MainWindowViewModel()
         {
             NavCommand = new MyICommand<string>(OnNav);
@@ -53,6 +55,9 @@ namespace SmartHomeManager
                     break;
                 case "consumers":
                     CurrentViewModel = consumerViewModel;
+                    break;
+                case "chart":
+                    CurrentViewModel = chartViewModel;
                     break;
             }
         }

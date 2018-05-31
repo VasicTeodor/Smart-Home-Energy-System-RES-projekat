@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="SmartHomeManager.Views.ChartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartHomeManager.Views"
+             xmlns:vml="clr-namespace:SmartHomeManager.VML"
+             vml:ViewModelLocator.AutoHookedUpViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="524" d:DesignWidth="742">
+    <Grid>
+        <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="524" Stroke="Transparent" VerticalAlignment="Top" Width="742"/>
+        <StackPanel>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ComboBox x:Name="cmbObj" ItemsSource="{Binding Lista}" Grid.Column="0" SelectedIndex="0" Grid.Row="0" Width="150" Height="30" Margin="5" SelectionChanged="cmbObj_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="#FF535353" Opacity="0.25"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Button x:Name="btnShow" Content="Show" FontWeight="Bold" Grid.Column="1" Grid.Row="0" Width="150" Height="30" Margin="90,0,102,5" VerticalAlignment="Bottom" Click="btnShow_Click" Foreground="White">
+                    <Button.Background>
+                        <SolidColorBrush Color="#FFA2ACAE" Opacity="0.25"/>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="62"/>
+                    <ColumnDefinition Width="620"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <Label Content="max kW" FontSize="13" FontWeight="Bold" Foreground="White"/>
+                    <Label Content="min kW" FontWeight="Bold" FontSize="13" Margin="0 340 0 0" Foreground="White"/>
+                </StackPanel>
+
+                <Canvas Grid.Column="1" Name="canGraph" Width="600" Height="400" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Canvas.Background>
+                        <SolidColorBrush Color="White" Opacity="0.9"/>
+                    </Canvas.Background>
+                </Canvas>
+            </Grid>
+            <Grid Height="27">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="0h" FontSize="15" FontWeight="Bold" Margin="75 0 0 0">
+                        <Label.Background>
+                            <SolidColorBrush Color="White" Opacity="0.5"/>
+                        </Label.Background>
+                    </Label>
+                    <Label Content="24h" FontSize="15" FontWeight="Bold" Margin="535 0 0 0">
+                        <Label.Background>
+                            <SolidColorBrush Color="White" Opacity="0.51"/>
+                        </Label.Background>
+                    </Label>
+                </StackPanel>
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

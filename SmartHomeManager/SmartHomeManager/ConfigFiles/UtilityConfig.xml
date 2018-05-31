@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfUtility xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Utility>
+    <power>5.65</power>
+    <price>2</price>
+    <Power>5.65</Power>
+    <Price>2</Price>
+  </Utility>
+</ArrayOfUtility>

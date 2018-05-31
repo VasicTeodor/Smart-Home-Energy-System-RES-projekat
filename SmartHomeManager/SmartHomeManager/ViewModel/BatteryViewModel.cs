@@ -21,6 +21,7 @@ namespace SmartHomeManager.ViewModel
         {
             Batteries = new ObservableCollection<Battery>();
             LoadBateries();
+            SHES.batteryPower = Batteries[0].MaxPower;
         }
 
         public Battery SelectedBattery
@@ -36,7 +37,7 @@ namespace SmartHomeManager.ViewModel
         {
            lock (Batteries)
            {
-                Batteries.Add(new Battery { Name = "Battery", MaxPower = 5.23, MaxCapacity = 10 });
+                Batteries = SHES.importer.DeSerializeObject<ObservableCollection<Battery>>("../../ConfigFiles/BatteriesConfig.xml");//.Add(new Battery { Name = "Battery", MaxPower = 5.23, MaxCapacity = 10 });
            }
         }
 

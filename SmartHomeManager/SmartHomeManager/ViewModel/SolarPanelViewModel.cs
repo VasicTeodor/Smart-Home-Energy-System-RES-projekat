@@ -35,8 +35,7 @@ namespace SmartHomeManager.ViewModel
         {
             lock (Panels)
             {
-                Panels.Add(new SolarPanel { Name = "Solar Panel A", MaxPower = 5.43, CurrentPower = 5.3 });
-                Panels.Add(new SolarPanel { Name = "Solar Panel B", MaxPower = 3.14, CurrentPower = 4.34 });
+                Panels = SHES.importer.DeSerializeObject<ObservableCollection<SolarPanel>>("../../ConfigFiles/SolarPanelsConfig.xml");
             }
         }
 

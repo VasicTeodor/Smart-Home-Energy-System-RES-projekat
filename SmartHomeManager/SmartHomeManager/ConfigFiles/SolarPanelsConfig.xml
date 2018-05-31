@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ArrayOfSolarPanel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SolarPanel>
+		<name>Solar Panel A</name>
+		<maxPower>5.43</maxPower>
+		<currentPower>0</currentPower>
+		<Name>Solar Panel A</Name>
+		<MaxPower>5.43</MaxPower>
+		<CurrentPower>0</CurrentPower>
+	</SolarPanel>
+	<SolarPanel>
+		<name>Solar Panel B</name>
+		<maxPower>3.23</maxPower>
+		<currentPower>0</currentPower>
+		<Name>Solar Panel B</Name>
+		<MaxPower>3.23</MaxPower>
+		<CurrentPower>0</CurrentPower>
+	</SolarPanel>
+</ArrayOfSolarPanel>
