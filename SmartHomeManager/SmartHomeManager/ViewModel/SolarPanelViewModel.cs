@@ -63,7 +63,7 @@ namespace SmartHomeManager.ViewModel
                         {
                             foreach (var p in Panels)
                             {
-                                p.CurrentPower = p.MaxPower * (20 / 100);
+                                p.CurrentPower = p.MaxPower * 0.2;
                             }
                         }
                     }
@@ -73,7 +73,7 @@ namespace SmartHomeManager.ViewModel
                         {
                             foreach (var p in Panels)
                             {
-                                p.CurrentPower = p.MaxPower * (50 / 100);
+                                p.CurrentPower = p.MaxPower * 0.5;
                             }
                         }
                     }
@@ -93,7 +93,7 @@ namespace SmartHomeManager.ViewModel
                         {
                             foreach (var p in Panels)
                             {
-                                p.CurrentPower = p.MaxPower * (50 / 100);
+                                p.CurrentPower = p.MaxPower * 0.5;
                             }
                         }
                     }
@@ -103,7 +103,7 @@ namespace SmartHomeManager.ViewModel
                         {
                             foreach (var p in Panels)
                             {
-                                p.CurrentPower = p.MaxPower * (20 / 100);
+                                p.CurrentPower = p.MaxPower * 0.2;
                             }
                         }
                     }

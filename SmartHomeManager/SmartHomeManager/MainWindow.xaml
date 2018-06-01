@@ -49,37 +49,39 @@
         <Rectangle Fill="Black" Opacity="0.4" HorizontalAlignment="Left" Height="108" Margin="893,10,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="210"/>
         <Label Content="Solar panel" HorizontalAlignment="Left" Margin="21,13,0,0" VerticalAlignment="Top" Width="154" Height="29" Foreground="White" FontWeight="Bold" FontSize="14"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="21,45,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="196"/>
-        <Image Source="images/s21.png" HorizontalAlignment="Left" Height="57" Margin="21,52,0,0" VerticalAlignment="Top" Width="25" Stretch="UniformToFill"/>
-        <Label Content="Generating" HorizontalAlignment="Left" Margin="51,48,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
-        <Label Content="1.60" HorizontalAlignment="Left" Margin="131,79,0,0" VerticalAlignment="Top" Width="50" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
+        <Image Name="imgPanel" Source="images/s21.png" HorizontalAlignment="Left" Height="57" Margin="21,52,0,0" VerticalAlignment="Top" Width="25" Stretch="UniformToFill"/>
+        <Label Name="labelPanel" Content="" HorizontalAlignment="Left" Margin="51,48,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
+        <Label Name="labelPanelPower" Content="" HorizontalAlignment="Left" Margin="131,79,0,0" VerticalAlignment="Top" Width="50" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
         <Label Content="kW" HorizontalAlignment="Left" Margin="175,85,0,0" VerticalAlignment="Top" Width="33" Height="25" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
         <Image Source="images/s24.png" HorizontalAlignment="Left" Height="21" Margin="180,24,0,0" VerticalAlignment="Top" Width="26" Stretch="Fill"/>
         <Image Source="images/s25.png" HorizontalAlignment="Left" Height="17" Margin="162,13,0,0" VerticalAlignment="Top" Width="24"/>
         <Label Content="Battery" HorizontalAlignment="Left" Margin="307,13,0,0" VerticalAlignment="Top" Width="154" Height="29" Foreground="White" FontWeight="Bold" FontSize="14"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="307,45,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="196"/>
-        <Image Source="images/s23.png" HorizontalAlignment="Left" Height="59" Margin="307,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
-        <Label Content="{Binding State}" HorizontalAlignment="Left" Margin="336,47,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
-        <Label x:Name="labelBattery" Content="5.14" HorizontalAlignment="Left" Margin="425,79,0,0" VerticalAlignment="Top" Width="47" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
-        <Label Content="kW" HorizontalAlignment="Left" Margin="470,85,0,0" VerticalAlignment="Top" Width="33" Height="24" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
+        <Image Name="imgBattery" Source="images/s23.png" HorizontalAlignment="Left" Height="59" Margin="307,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
+        <Label Name="labelBattery" Content="" HorizontalAlignment="Left" Margin="336,47,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
+        <Label Name="labelBatteryCapacity" Content="" HorizontalAlignment="Left" Margin="390,82,0,0" VerticalAlignment="Top" Width="40" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
+        <Label Name="labelBatteryCapacityMin" Content="" HorizontalAlignment="Left" Margin="441,82,0,0" VerticalAlignment="Top" Width="40" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
+        <Label Content="h" HorizontalAlignment="Left" Margin="421,88,0,0" VerticalAlignment="Top" Width="33" Height="24" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
+        <Label Content="min" HorizontalAlignment="Left" Margin="470,88,0,0" VerticalAlignment="Top" Width="33" Height="24" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
         <Label Content="Utility" HorizontalAlignment="Left" Margin="601,13,0,0" VerticalAlignment="Top" Width="154" Height="29" Foreground="White" FontWeight="Bold" FontSize="14"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="601,45,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="196"/>
-        <Image Source="images/s22.png" HorizontalAlignment="Left" Height="59" Margin="601,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
-        <Label Content="Consuming" HorizontalAlignment="Left" Margin="630,47,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
-        <Label Content="5.43" HorizontalAlignment="Left" Margin="722,79,0,0" VerticalAlignment="Top" Width="47" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
+        <Image Name="imgUtility" Source="images/s22.png" HorizontalAlignment="Left" Height="59" Margin="601,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
+        <Label Name="labelUtility" Content="Consuming" HorizontalAlignment="Left" Margin="630,47,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
+        <Label Name="labelUtilityPower" Content="5.43" HorizontalAlignment="Left" Margin="722,79,0,0" VerticalAlignment="Top" Width="47" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
         <Label Content="kW" HorizontalAlignment="Left" Margin="763,85,0,0" VerticalAlignment="Top" Width="28" Height="27" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="900,45,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="196"/>
         <Label Content="Consumers" HorizontalAlignment="Left" Margin="900,13,0,0" VerticalAlignment="Top" Width="154" Height="29" Foreground="White" FontWeight="Bold" FontSize="14"/>
-        <Image Source="images/s22.png" HorizontalAlignment="Left" Height="59" Margin="900,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
+        <Image Name="imgConsumers" Source="images/s22.png" HorizontalAlignment="Left" Height="59" Margin="900,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
         <Label Content="Consuming" HorizontalAlignment="Left" Margin="930,47,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
-        <Label Content="5.43" HorizontalAlignment="Left" Margin="1027,79,0,0" VerticalAlignment="Top" Width="47" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
+        <Label Name="labelConsumersConsumption" Content="" HorizontalAlignment="Left" Margin="1027,79,0,0" VerticalAlignment="Top" Width="47" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
         <Label Content="kW" HorizontalAlignment="Left" Margin="1068,85,0,0" VerticalAlignment="Top" Width="28" Height="27" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
         <Image Source="images/s60.png" Height="120" Margin="280,443,837,0" VerticalAlignment="Top" Stretch="UniformToFill"/>
         <Image Source="images/s63.png" HorizontalAlignment="Left" Height="100" Margin="336,262,0,0" VerticalAlignment="Top" Width="100"/>
         <Image Source="images/s62.png" HorizontalAlignment="Left" Height="100" Margin="180,150,0,0" VerticalAlignment="Top" Width="100"/>
-        <Image Source="images/s27.png" HorizontalAlignment="Left" Height="100" Margin="21,262,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image Source="images/s27.png" HorizontalAlignment="Left" Height="100" Margin="18,262,0,0" VerticalAlignment="Top" Width="100"/>
         <Image Source="images/s64.png" HorizontalAlignment="Left" Height="100" Margin="86,454,0,0" VerticalAlignment="Top" Width="100"/>
         <Image Source="images/s61.png" HorizontalAlignment="Left" Height="100" Margin="180,319,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label Content="Smart Home Energy System" HorizontalAlignment="Left" Margin="10,642,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Smart Home Energy System" HorizontalAlignment="Left" Margin="15,628,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="20" Height="44" Width="290"/>
 
         <!--
         <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="250" Margin="488,140,0,0" Stroke="White" StrokeThickness="4" VerticalAlignment="Top" Width="742"/>
@@ -108,68 +110,158 @@
         </Grid>
 
 
-        <Button HorizontalAlignment="Left" Margin="180,319,0,0" VerticalAlignment="Top" Width="101" Height="100" Command="{Binding NavCommand}" CommandParameter="home">
+        <Button Name="btnHome" IsEnabled="True" Cursor="Hand" HorizontalAlignment="Left" Margin="178,317,0,0" VerticalAlignment="Top" Width="104" Height="104" Command="{Binding NavCommand}" CommandParameter="home" Click="ButtonHome_Click">
 
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Transparent" StrokeThickness="4" Fill="Transparent"/>
+                        <Ellipse Stroke="Transparent" StrokeThickness="4">
+                            <Ellipse.Style>
+                                <Style TargetType="Ellipse">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="false">
+                                            <Setter Property="Fill" Value="Black"></Setter>
+                                            <Setter Property="Opacity" Value="0.3"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="true">
+                                            <Setter Property="Fill" Value="Transparent"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Ellipse.Style>
+                        </Ellipse>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="15,262,0,0" VerticalAlignment="Top" Width="106" Height="100" Command="{Binding NavCommand}" CommandParameter="solarPanel">
+        <Button Name="btnPanel" Cursor="Hand" IsEnabled="True" HorizontalAlignment="Left" Margin="15,259,10,0" VerticalAlignment="Top" Width="105" Height="105" Command="{Binding NavCommand}" CommandParameter="solarPanel" Click="btnPanel_Click">
 
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Transparent" StrokeThickness="4" Fill="Transparent"/>
+                        <Ellipse Stroke="Transparent" StrokeThickness="4">
+                            <Ellipse.Style>
+                                <Style TargetType="Ellipse">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="false">
+                                            <Setter Property="Fill" Value="Black"></Setter>
+                                            <Setter Property="Opacity" Value="0.3"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="true">
+                                            <Setter Property="Fill" Value="Transparent"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Ellipse.Style>
+                        </Ellipse>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="180,150,0,0" VerticalAlignment="Top" Width="100" Height="100" Command="{Binding NavCommand}" CommandParameter="consumers">
+        <Button Name="btnConsumers" Cursor="Hand" IsEnabled="True" HorizontalAlignment="Left" Margin="180,150,0,0" VerticalAlignment="Top" Width="100" Height="100" Command="{Binding NavCommand}" CommandParameter="consumers" Click="ButtonConsumers_Click">
 
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Transparent" StrokeThickness="4" Fill="Transparent"/>
+                        <Ellipse Stroke="Transparent" StrokeThickness="4">
+                            <Ellipse.Style>
+                                <Style TargetType="Ellipse">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="false">
+                                            <Setter Property="Fill" Value="Black"></Setter>
+                                            <Setter Property="Opacity" Value="0.3"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="true">
+                                            <Setter Property="Fill" Value="Transparent"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Ellipse.Style>
+                        </Ellipse>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="336,262,0,0" VerticalAlignment="Top" Width="100" Height="100" Command="{Binding NavCommand}" CommandParameter="utility">
+        <Button Name="btnUtility" Cursor="Hand" IsEnabled="True" HorizontalAlignment="Left" Margin="334,260,0,0" VerticalAlignment="Top" Width="105" Height="105" Command="{Binding NavCommand}" CommandParameter="utility" Click="btnUtility_Click">
 
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Transparent" StrokeThickness="4" Fill="Transparent"/>
+                        <Ellipse Stroke="Transparent" StrokeThickness="4">
+                            <Ellipse.Style>
+                                <Style TargetType="Ellipse">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="false">
+                                            <Setter Property="Fill" Value="Black"></Setter>
+                                            <Setter Property="Opacity" Value="0.3"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="true">
+                                            <Setter Property="Fill" Value="Transparent"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Ellipse.Style>
+                        </Ellipse>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="289,454,0,0" VerticalAlignment="Top" Width="102" Height="100" Command="{Binding NavCommand}" CommandParameter="battery">
+        <Button Name="btnBattery" Cursor="Hand" IsEnabled="True" HorizontalAlignment="Left" Margin="289,454,0,0" VerticalAlignment="Top" Width="104" Height="104" Command="{Binding NavCommand}" CommandParameter="battery" Click="btnBattery_Click">
 
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Transparent" StrokeThickness="4" Fill="Transparent"/>
+                        <Ellipse Stroke="Transparent" StrokeThickness="4">
+                            <Ellipse.Style>
+                                <Style TargetType="Ellipse">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="false">
+                                            <Setter Property="Fill" Value="Black"></Setter>
+                                            <Setter Property="Opacity" Value="0.3"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="true">
+                                            <Setter Property="Fill" Value="Transparent"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Ellipse.Style>
+                        </Ellipse>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="85,454,0,0" VerticalAlignment="Top" Width="101" Height="100" Command="{Binding NavCommand}" CommandParameter="chart">
+        <Button Name="btnReport" Cursor="Hand" IsEnabled="True" HorizontalAlignment="Left" Margin="83,452,0,0" VerticalAlignment="Top" Width="105" Height="105" Command="{Binding NavCommand}" CommandParameter="chart" Click="ButtonReport_Click">
 
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Ellipse Stroke="Transparent" StrokeThickness="4" Fill="Transparent"/>
+                        <Ellipse Stroke="Transparent" StrokeThickness="4">
+                            <Ellipse.Style>
+                                <Style TargetType="Ellipse">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="false">
+                                            <Setter Property="Fill" Value="Black"></Setter>
+                                            <Setter Property="Opacity" Value="0.3"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="true">
+                                            <Setter Property="Fill" Value="Transparent"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Ellipse.Style>
+                        </Ellipse>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
         <Image Source="images/s53.png" HorizontalAlignment="Left" Height="81" Margin="1140,15,0,0" VerticalAlignment="Top" Width="74" Stretch="Fill"/>
         <Label Content="Exit" HorizontalAlignment="Left" Margin="1159,85,0,0" VerticalAlignment="Top" Width="55" Height="29" Foreground="White" FontWeight="Bold"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="1133,10,0,0" VerticalAlignment="Top" Width="90" Height="108" Click="Button_Click" Background="Black" Opacity="0.3" Foreground="White" BorderBrush="Transparent"/>
+        <Button Cursor="Hand" Content="" HorizontalAlignment="Left" Margin="1133,10,0,0" VerticalAlignment="Top" Width="90" Height="108" Click="Button_Click" Background="Black" Opacity="0.3" Foreground="White" BorderBrush="Transparent"/>
+        <Label Content="SHES" HorizontalAlignment="Left" Margin="202,421,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="64"/>
+        <Label Content="Consumers" HorizontalAlignment="Left" Margin="180,247,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="103"/>
+        <Label Content="Solar panel" HorizontalAlignment="Left" Margin="21,364,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="103"/>
+        <Label Content="Utility" HorizontalAlignment="Left" Margin="356,365,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="69"/>
+        <Label Content="Report" HorizontalAlignment="Left" Margin="100,554,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="65"/>
+        <Label Content="Battery" HorizontalAlignment="Left" Margin="308,554,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="81"/>
     </Grid>
 </Window>

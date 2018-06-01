@@ -211,5 +211,11 @@
   <ItemGroup>
     <Resource Include="ConfigFiles\UtilityConfig.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\s76.png" />
+    <Resource Include="images\s78.png" />
+    <Resource Include="images\s81.ico" />
+    <Resource Include="images\s82.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
