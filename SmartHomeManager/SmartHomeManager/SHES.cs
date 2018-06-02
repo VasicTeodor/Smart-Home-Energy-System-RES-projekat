@@ -20,6 +20,7 @@ namespace SmartHomeManager
         public static double solarPnaelsPower = 0;
         public static double batteryCapacity = 0;
         public static double batteryCapacityMin = 0;
+        public static double consumersConsumption = 0;
         public static bool shutDown = false;
         private double wholeConsumption = 0;
         private double importExportPower = 0;
@@ -130,10 +131,13 @@ namespace SmartHomeManager
                             }
                             catch { }
 
+                            wholeConsumption = 0;
                             foreach(var cons in devicesList)
                             {
                                 wholeConsumption += cons.Consumption;
                             }
+
+                            consumersConsumption = wholeConsumption;
 
                             if (batteryState == Enums.BatteryState.CHARGING)
                             {

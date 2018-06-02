@@ -111,14 +111,14 @@ namespace SmartHomeManager.Views
             double xmax = canGraph.Width - margin;
             double ymax = canGraph.Height - margin;
             const double stepX = 24.583;
-            const double stepY = 19.5;
+            const double stepY = 10;
 
             GeometryGroup xaxis_geom = new GeometryGroup();
-            xaxis_geom.Children.Add(new LineGeometry(new Point(0, ymax), new Point(canGraph.Width, ymax)));
+            xaxis_geom.Children.Add(new LineGeometry(new Point(0, ymax/2), new Point(canGraph.Width, ymax/2)));
 
             for (double x = xmin + stepX; x <= canGraph.Width - stepX; x += stepX)
             {
-                xaxis_geom.Children.Add(new LineGeometry(new Point(x, ymax - margin / 2), new Point(x, ymax + margin / 2)));
+                xaxis_geom.Children.Add(new LineGeometry(new Point(x, ymax/2 - margin / 2), new Point(x, ymax/2 + margin / 2)));
             }
 
             System.Windows.Shapes.Path xaxis_path = new System.Windows.Shapes.Path();
@@ -131,7 +131,7 @@ namespace SmartHomeManager.Views
             GeometryGroup yaxis_geom = new GeometryGroup();
             yaxis_geom.Children.Add(new LineGeometry(new Point(xmin, 0), new Point(xmin, canGraph.Height)));
 
-            for (double y = stepY; y <= canGraph.Height - stepY; y += stepY)
+            for (double y = stepY; y <= canGraph.Height; y += stepY)
             {
                 yaxis_geom.Children.Add(new LineGeometry(new Point(xmin - margin / 2, y), new Point(xmin + margin / 2, y)));
             }
@@ -149,7 +149,7 @@ namespace SmartHomeManager.Views
             PointCollection utilityPoints = new PointCollection();
             for (double x = xmin; x <= ((utilityPlotValues.Count) * stepX); x += stepX)
             {
-                y_new = (20 - utilityPlotValues[br]);
+                y_new = (19.5 - utilityPlotValues[br]);
                 if (br < utilityPlotValues.Count)
                 {
                     br++;
@@ -163,7 +163,7 @@ namespace SmartHomeManager.Views
             PointCollection batteryPoints = new PointCollection();
             for (double x = xmin; x <= ((batteryPlotValues.Count) * stepX); x += stepX)
             {
-                y_new = (20 - batteryPlotValues[br]);
+                y_new = (19.5 - batteryPlotValues[br]);
                 if (br < batteryPlotValues.Count)
                 {
                     br++;
@@ -177,7 +177,7 @@ namespace SmartHomeManager.Views
             PointCollection panelPoints = new PointCollection();
             for (double x = xmin; x <= ((solarPanelsPlotValues.Count) * stepX); x += stepX)
             {
-                y_new = (20 - solarPanelsPlotValues[br]);
+                y_new = (19.5 - solarPanelsPlotValues[br]);
                 if (br < solarPanelsPlotValues.Count)
                 {
                     br++;
@@ -191,7 +191,7 @@ namespace SmartHomeManager.Views
             PointCollection consumersPoints = new PointCollection();
             for (double x = xmin; x <= ((consumersPlotValues.Count) * stepX); x += stepX)
             {
-                y_new = (20 - consumersPlotValues[br]);
+                y_new = (19.5 - consumersPlotValues[br]);
                 if (br < consumersPlotValues.Count)
                 {
                     br++;

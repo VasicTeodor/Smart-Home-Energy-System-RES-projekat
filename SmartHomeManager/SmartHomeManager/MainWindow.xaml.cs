@@ -50,7 +50,7 @@ namespace SmartHomeManager
                 labelBatteryCapacity.Content = SHES.batteryCapacity;
                 labelBatteryCapacityMin.Content = SHES.batteryCapacityMin;
                 //labelUtilityPower.Content = SHES.utilityPower;
-                //labelConsumersConsumption.Content = SHES.consumersConsumption;
+                labelConsumersConsumption.Content = SHES.consumersConsumption;
                 /* otprilike ovako nesto
                 if (SHES.panelState == generating)
                 {
@@ -73,16 +73,6 @@ namespace SmartHomeManager
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
-        }
-
-        private void buttonOn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void buttonOff_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void ButtonHome_Click(object sender, RoutedEventArgs e)
