@@ -263,5 +263,8 @@
         <Label Content="Utility" HorizontalAlignment="Left" Margin="356,365,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="69"/>
         <Label Content="Report" HorizontalAlignment="Left" Margin="100,554,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="65"/>
         <Label Content="Battery" HorizontalAlignment="Left" Margin="308,554,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="81"/>
+
+        <Image Source="images/s89.png" HorizontalAlignment="Left" Height="23" Margin="1068,19,0,0" VerticalAlignment="Top" Width="24"/>
+        <Button Name="AddConsumer" Cursor="Hand" Content="" Background="White" Opacity="0" HorizontalAlignment="Left" BorderBrush="Transparent" Margin="1064,16,0,0" VerticalAlignment="Top" Width="31" Height="28" Click="AddConsumer_Click"/>
     </Grid>
 </Window>

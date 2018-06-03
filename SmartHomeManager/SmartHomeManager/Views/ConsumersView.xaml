@@ -17,7 +17,7 @@
                 <Style TargetType="DataGridCell">
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#FF254A1F"/>
+                            <Setter Property="Background" Value="Transparent"/>
                             <Setter Property="Foreground" Value="White" />
                         </Trigger>
                     </Style.Triggers>
@@ -30,15 +30,30 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Grid Background="Transparent" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="742">
-                                <Ellipse Fill="#FF55A938" HorizontalAlignment="Left" Height="136" Margin="564,25,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="150"/>
+                                <Ellipse Fill="#FF55A938" HorizontalAlignment="Left" Height="136" Margin="309,41,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="150"/>
 
                                 <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
-                                <Label Content="Consuming" HorizontalAlignment="Left" Margin="585,50,0,0" VerticalAlignment="Top" Height="43" Width="112" Foreground="White" FontSize="18"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="595,83,0,0" TextWrapping="Wrap" Text="{Binding Consumption}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
-                                <Label Content="kW" HorizontalAlignment="Left" Margin="655,94,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" RenderTransformOrigin="0.633,1.052"/>
-                                <Image Source="../images/s71.png" HorizontalAlignment="Left" Height="152" Margin="362,25,0,0" VerticalAlignment="Top" Width="174" Stretch="Fill"/>
-                                <Button x:Name="buttonOn" BorderBrush="Transparent" Background="#FF63BF63" Height="40" Width="100" Content="ON" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="White" Margin="349,172,293,38"/>
-                                <Button x:Name="buttonOff" BorderBrush="Transparent" Background="Black" Opacity="0.7" Height="40" Width="100" Content="OFF" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold" Margin="454,172,188,38"/>
+                                <Label Name="lbl" Content="Consuming" HorizontalAlignment="Left" Margin="323,58,0,0" VerticalAlignment="Top" Height="43" Width="112" Foreground="White" FontSize="18"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="335,102,0,0" TextWrapping="Wrap" Text="{Binding Consumption}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
+                                <Label Content="kW" HorizontalAlignment="Left" Margin="410,113,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" RenderTransformOrigin="0.633,1.052"/>
+                                <Image Source="../images/s71.png" HorizontalAlignment="Left" Height="152" Margin="500,25,0,0" VerticalAlignment="Top" Width="174" Stretch="Fill"/>
+                                <Button Name="buttonOn" IsEnabled="{Binding ButtonOn}" BorderBrush="Transparent" Height="40" Width="100" Content="ON" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="White" Margin="484,172,158,38" Click="buttonOn_Click" Background="#FF63BF63">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="false">
+                                                    <Setter Property="Background" Value="Black"></Setter>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="true">
+                                                    <Setter Property="Background" Value="Green"></Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                <Button Name="buttonOff" BorderBrush="Transparent" Background="Black" Opacity="0.7" Height="40" Width="100" Content="OFF" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold" Margin="589,172,53,38" Click="buttonOff_Click"/>
+                                <Image Source="../images/s90.png" HorizontalAlignment="Left" Height="57" Margin="674,0,0,0" VerticalAlignment="Top" Width="48" Stretch="UniformToFill"/>
+                                <Button Content="" Background="White" Opacity="0" BorderBrush="Transparent" Cursor="Hand" HorizontalAlignment="Left" Margin="677,20,0,0" VerticalAlignment="Top" Width="53" Height="22"/>
 
                             </Grid>
                         </DataTemplate>

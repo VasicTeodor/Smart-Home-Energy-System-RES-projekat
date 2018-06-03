@@ -136,6 +136,11 @@ namespace SmartHomeManager
             btnBattery.IsEnabled = true;
             btnHome.IsEnabled = true;
         }
-   
+
+        private void AddConsumer_Click(object sender, RoutedEventArgs e)
+        {
+            AddConsumerWindow addConsumer = new AddConsumerWindow();
+            addConsumer.ShowDialog();
+        }
     }
 }

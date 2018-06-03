@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddConsumerWindow.xaml.cs">
+      <DependentUpon>AddConsumerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\BatteryModel.cs" />
     <Compile Include="Model\ConsumersModel.cs" />
     <Compile Include="Model\DataIO.cs" />
@@ -86,6 +89,10 @@
       <DependentUpon>UtilityView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VML\ViewModelLocator.cs" />
+    <Page Include="AddConsumerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -216,6 +223,18 @@
     <Resource Include="images\s78.png" />
     <Resource Include="images\s81.ico" />
     <Resource Include="images\s82.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\s85.png" />
+    <Resource Include="images\s86.png" />
+    <Resource Include="images\s88.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\s89.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\s90.png" />
+    <Resource Include="images\s91.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
