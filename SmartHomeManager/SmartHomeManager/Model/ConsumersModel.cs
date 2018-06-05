@@ -17,6 +17,7 @@ namespace SmartHomeManager.Model
         private double consumption;
         private string name;
         private string image;
+        private bool working;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -29,6 +30,19 @@ namespace SmartHomeManager.Model
                 {
                     image = value;
                     RaisePropertyChanged("Image");
+                }
+            }
+        }
+
+        public bool Working
+        {
+            get { return working; }
+            set
+            {
+                if (working != value)
+                {
+                    working = value;
+                    RaisePropertyChanged("Working");
                 }
             }
         }

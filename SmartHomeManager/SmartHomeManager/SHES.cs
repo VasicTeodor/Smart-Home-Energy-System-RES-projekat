@@ -119,14 +119,20 @@ namespace SmartHomeManager
                             // Azuriranje potrebnih stvari u aplikaciji
                             int deviceId = Int32.Parse((incomming.Split('_', ':'))[1]);
                             double consumption = double.Parse((incomming.Split('_', ':'))[2]);
-                            
-                            devicesList[deviceId].Consumption = consumption;
+
+                            if (devicesList[deviceId].Working)
+                            {
+                                devicesList[deviceId].Consumption = consumption;
+                            }
 
                             try
                             {
                                 lock (ConsumersViewModel.Consumers)
                                 {
-                                    ConsumersViewModel.Consumers[deviceId].Consumption = consumption;
+                                    if (ConsumersViewModel.Consumers[deviceId].Working)
+                                    {
+                                        ConsumersViewModel.Consumers[deviceId].Consumption = consumption;
+                                    }
                                 }
                             }
                             catch { }
@@ -168,6 +174,10 @@ namespace SmartHomeManager
         private void LoadDevices()
         {
             devicesList = importer.DeSerializeObject<ObservableCollection<Consumers>>("../../ConfigFiles/ConsumersConfig.xml");
+            foreach(var device in devicesList)
+            {
+                device.Working = false;
+            }
         }
     }
 }

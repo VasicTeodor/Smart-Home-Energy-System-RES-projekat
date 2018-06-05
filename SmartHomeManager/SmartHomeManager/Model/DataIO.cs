@@ -96,7 +96,8 @@ namespace SmartHomeManager.Model
             }
             else
             {
-                XDocument doc = XDocument.Load(fileName);
+                FileStream s2 = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                XDocument doc = XDocument.Load(s2);
                 XElement school = doc.Element($"{item}s");
                 school.Add(new XElement($"{item}",
                            new XElement("value", $"{input}"),

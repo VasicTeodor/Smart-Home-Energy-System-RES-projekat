@@ -19,33 +19,8 @@ namespace SmartHomeManager.Views
     /// <summary>
     /// Interaction logic for ConsumersView.xaml
     /// </summary>
-    public partial class ConsumersView : UserControl, INotifyPropertyChanged
+    public partial class ConsumersView : UserControl
     {
-        private bool buttonOn;
-        public event PropertyChangedEventHandler PropertyChanged; // delegate { };
-
-        public bool ButtonOn
-        {
-            get { return buttonOn; }
-            set
-            {
-                if (buttonOn != value)
-                {
-                    buttonOn = value;
-                    RaisePropertyChanged("ButtonOn");
-                }
-            }
-        }
-
-
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
-
         public ConsumersView()
         {
             InitializeComponent();
@@ -54,20 +29,6 @@ namespace SmartHomeManager.Views
 
         private void buttonOn_Click(object sender, RoutedEventArgs e)
         {
-            //Background="#FF63BF63"
-            if (ButtonOn == true)
-            {
-                ButtonOn = false;
-            }
-            else
-            {
-                ButtonOn = true;
-            }
-        }
-
-        private void buttonOff_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

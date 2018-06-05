@@ -10,8 +10,12 @@
              d:DesignHeight="524" d:DesignWidth="742">
     <Grid>
         <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="524" Stroke="Transparent" VerticalAlignment="Top" Width="742"/>
-
-        <DataGrid  x:Name="dataGridShes" ItemsSource="{Binding Consumers}" BorderBrush="#FFD8D8D8" BorderThickness="4" RowHeight="250"  RowBackground="Transparent" HorizontalAlignment="Left" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" Height="524" VerticalAlignment="Top" Width="742" Background="Transparent" Foreground="White">
+        <StackPanel Orientation="Horizontal" Height="50" Width="742" VerticalAlignment="Top">
+            <Button Name="buttonOn" Command="{Binding TurnOnCommand}" BorderBrush="Transparent" Height="40" Width="100" Margin="150,0,0,0" Content="ON" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="White"  Background="#FF63BF63" Click="buttonOn_Click"/>
+            <Button Name="buttonOff" BorderBrush="Transparent" Background="Red" Opacity="0.7" Height="40" Width="100" Margin="50,0,0,0"  Content="OFF" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold" Command="{Binding TurnOffCommand}"/>
+            <Button Name="buttonRemove" Command="{Binding RemoveCommand}" BorderBrush="Transparent" Background="Red" Opacity="0.7" Height="40" Width="150" Margin="50,0,0,0" Content="REMOVE" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold"/>
+        </StackPanel>
+        <DataGrid  x:Name="dataGridShes" ItemsSource="{Binding Consumers}" SelectedItem="{Binding SelectedConsumer}" Margin="0,50,0,0" BorderBrush="#FFD8D8D8" BorderThickness="4" RowHeight="220"  RowBackground="Transparent" HorizontalAlignment="Left" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" Height="464" VerticalAlignment="Top" Width="742" Background="Transparent" Foreground="White">
 
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
@@ -37,23 +41,6 @@
                                 <TextBlock HorizontalAlignment="Left" Margin="335,102,0,0" TextWrapping="Wrap" Text="{Binding Consumption}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
                                 <Label Content="kW" HorizontalAlignment="Left" Margin="410,113,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" RenderTransformOrigin="0.633,1.052"/>
                                 <Image Source="../images/s71.png" HorizontalAlignment="Left" Height="152" Margin="500,25,0,0" VerticalAlignment="Top" Width="174" Stretch="Fill"/>
-                                <Button Name="buttonOn" IsEnabled="{Binding ButtonOn}" BorderBrush="Transparent" Height="40" Width="100" Content="ON" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="White" Margin="484,172,158,38" Click="buttonOn_Click" Background="#FF63BF63">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="false">
-                                                    <Setter Property="Background" Value="Black"></Setter>
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Button}}" Value="true">
-                                                    <Setter Property="Background" Value="Green"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
-                                <Button Name="buttonOff" BorderBrush="Transparent" Background="Black" Opacity="0.7" Height="40" Width="100" Content="OFF" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold" Margin="589,172,53,38" Click="buttonOff_Click"/>
-                                <Image Source="../images/s90.png" HorizontalAlignment="Left" Height="57" Margin="674,0,0,0" VerticalAlignment="Top" Width="48" Stretch="UniformToFill"/>
-                                <Button Content="" Background="White" Opacity="0" BorderBrush="Transparent" Cursor="Hand" HorizontalAlignment="Left" Margin="677,20,0,0" VerticalAlignment="Top" Width="53" Height="22"/>
 
                             </Grid>
                         </DataTemplate>
