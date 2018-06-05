@@ -58,6 +58,8 @@ namespace SmartHomeManager.ViewModel
 
                 SHES.batteryCapacity = Batteries[0].Capacity;
                 SHES.batteryCapacityMin = Batteries[0].CapacityMin;
+
+                SHES.importer.logService("BatteryLog.xml", "Battery", 0 - Batteries[0].MaxPower);
             }
             else
             {
@@ -85,6 +87,7 @@ namespace SmartHomeManager.ViewModel
 
                 SHES.batteryCapacity = Batteries[0].Capacity;
                 SHES.batteryCapacityMin = Batteries[0].CapacityMin;
+                SHES.importer.logService("BatteryLog.xml", "Battery", Batteries[0].MaxPower);
             }
             else
             {
@@ -97,6 +100,7 @@ namespace SmartHomeManager.ViewModel
         {
             Batteries[0].State = Enums.BatteryState.IDLLE;
             SHES.batteryState = Enums.BatteryState.IDLLE;
+            SHES.importer.logService("BatteryLog.xml", "Battery", 0);
 
             SHES.batteryCapacity = Batteries[0].Capacity;
             SHES.batteryCapacityMin = Batteries[0].CapacityMin;

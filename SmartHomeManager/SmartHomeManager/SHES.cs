@@ -132,6 +132,7 @@ namespace SmartHomeManager
                             catch { }
 
                             wholeConsumption = 0;
+
                             foreach(var cons in devicesList)
                             {
                                 wholeConsumption += cons.Consumption;
@@ -141,27 +142,20 @@ namespace SmartHomeManager
 
                             if (batteryState == Enums.BatteryState.CHARGING)
                             {
-                                importExportPower = consumption - solarPnaelsPower + batteryPower;
+                                importExportPower = wholeConsumption - solarPnaelsPower + batteryPower;
+                            }
+                            else if(batteryState == Enums.BatteryState.DISCHARGING)
+                            {
+                                importExportPower = wholeConsumption - solarPnaelsPower - batteryPower;
                             }
                             else
                             {
-                                importExportPower = consumption - solarPnaelsPower - batteryPower;
+                                importExportPower = wholeConsumption - solarPnaelsPower;
                             }
 
-                            LogService("ConsumptionLog.txt", "Consumption", consumption);
-
-                            if(batteryState == Enums.BatteryState.CHARGING)
-                            {
-                                LogService("BatteryLog.txt","Battery", 0 - batteryPower);
-                            }
-                            else
-                            {
-                                LogService("BatteryLog.txt", "Battery", batteryPower);
-                            }
-
-                            LogService("SolarPanelsLog.txt", "SolarPanel", solarPnaelsPower);
-
-                            LogService("UtilityLog.txt", "Utility", importExportPower);
+                            importer.logService("ConsumptionLog.xml", "Consumption", wholeConsumption);
+                            
+                            importer.logService("UtilityLog.xml", "Utility", importExportPower);
                         }
                     }, null);
                 }
@@ -174,15 +168,6 @@ namespace SmartHomeManager
         private void LoadDevices()
         {
             devicesList = importer.DeSerializeObject<ObservableCollection<Consumers>>("../../ConfigFiles/ConsumersConfig.xml");
-        }
-
-        private void LogService(string fileName, string item, double input)
-        {
-            string logTxt = $"{item} - Value: {input} TimeStamp: {DateTime.Now.ToString()}";
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(fileName, true))
-            {
-                file.WriteLine(logTxt);
-            }
         }
     }
 }

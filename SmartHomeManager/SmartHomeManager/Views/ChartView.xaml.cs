@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace SmartHomeManager.Views
 {
@@ -34,77 +35,19 @@ namespace SmartHomeManager.Views
             List<double> solarPanelsPlotValues = new List<double>();
             List<double> utilityPlotValues = new List<double>();
             List<double> consumersPlotValues = new List<double>();
+            List<double> hlp = new List<double>();
 
-            //LOGIKA ZA PUNJENJE LISTA
+            hlp = SHES.importer.ReadLog("UtilityLog.xml", "Utility");
+            utilityPlotValues = LimitValues(hlp);
 
-            string line;
-            using (System.IO.StreamReader file = new System.IO.StreamReader("UtilityLog.txt"))
-            {
-                while ((line = file.ReadLine()) != null)
-                {
-                    string date = line.Split(':')[2].Trim();
-                    DateTime myDate = DateTime.Parse(date);
+            hlp = SHES.importer.ReadLog("BatteryLog.xml", "Battery");
+            batteryPlotValues = LimitValues(hlp);
 
-                    if(myDate.Minute % 3 == 0 || myDate.Minute == 7 || myDate.Minute == 16 || myDate.Minute == 22)
-                    {
-                        string value = line.Split(':')[1].Trim().Replace("TimeStamp", "").Trim();
-                        double doubleValue = -1;
-                        Double.TryParse(value, out doubleValue);
-                        utilityPlotValues.Add(doubleValue);
-                    }
-                }
-            }
+            hlp = SHES.importer.ReadLog("ConsumptionLog.xml", "Consumption");
+            consumersPlotValues = LimitValues(hlp);
 
-            using (System.IO.StreamReader file = new System.IO.StreamReader("BatteryLog.txt"))
-            {
-                while ((line = file.ReadLine()) != null)
-                {
-                    string date = line.Split(':')[2].Trim();
-                    DateTime myDate = DateTime.Parse(date);
-
-                    if (myDate.Minute % 3 == 0 || myDate.Minute == 7 || myDate.Minute == 16 || myDate.Minute == 22)
-                    {
-                        string value = line.Split(':')[1].Trim().Replace("TimeStamp", "").Trim();
-                        double doubleValue = -1;
-                        Double.TryParse(value, out doubleValue);
-                        batteryPlotValues.Add(doubleValue);
-                    }
-                }
-            }
-
-            using (System.IO.StreamReader file = new System.IO.StreamReader("ConsumptionLog.txt"))
-            {
-                while ((line = file.ReadLine()) != null)
-                {
-                    string date = line.Split(':')[2].Trim();
-                    DateTime myDate = DateTime.Parse(date);
-
-                    if (myDate.Minute % 3 == 0 || myDate.Minute == 7 || myDate.Minute == 16 || myDate.Minute == 22)
-                    {
-                        string value = line.Split(':')[1].Trim().Replace("TimeStamp", "").Trim();
-                        double doubleValue = -1;
-                        Double.TryParse(value, out doubleValue);
-                        consumersPlotValues.Add(doubleValue);
-                    }
-                }
-            }
-
-            using (System.IO.StreamReader file = new System.IO.StreamReader("SolarPanelsLog.txt"))
-            {
-                while ((line = file.ReadLine()) != null)
-                {
-                    string date = line.Split(':')[2].Trim();
-                    DateTime myDate = DateTime.Parse(date);
-
-                    if (myDate.Minute % 3 == 0 || myDate.Minute == 7 || myDate.Minute == 16 || myDate.Minute == 22)
-                    {
-                        string value = line.Split(':')[1].Trim().Replace("TimeStamp", "").Trim();
-                        double doubleValue = -1;
-                        Double.TryParse(value, out doubleValue);
-                        solarPanelsPlotValues.Add(doubleValue);
-                    }
-                }
-            }
+            hlp = SHES.importer.ReadLog("SolarPanelsLog.xml", "SolarPanel");
+            solarPanelsPlotValues = LimitValues(hlp);
 
             const double margin = 10;
             double xmin = margin;
@@ -231,6 +174,18 @@ namespace SmartHomeManager.Views
         private void cmbObj_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             canGraph.Children.Clear();
+        }
+
+        private List<double> LimitValues(List<double> values)
+        {
+            if (values.Count != 0 && values.Count > 24)
+            {
+                while (values.Count != 24)
+                {
+                    values.RemoveAt(0);
+                }
+            }
+            return values;
         }
     }
 }

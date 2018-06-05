@@ -118,6 +118,8 @@ namespace SmartHomeManager.ViewModel
 
                     SHES.solarPnaelsPower = currentPowerPanels;
 
+                    SHES.importer.logService("SolarPanelsLog.xml", "SolarPanel", currentPowerPanels);
+
                     Thread.Sleep(1000);
                 }
             }).Start();
