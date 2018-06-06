@@ -106,11 +106,12 @@ namespace SmartHomeManager.Model
             }
         }
 
-        public List<double> ReadLog(string fileName, string item)
+        public List<KeyValuePair<int, double>> ReadLog(string fileName, string item, string selectedDate)
         {
             double help = 0;
+            int counter = 0;
             DateTime helpdate;
-            List<double> retVal = new List<double>();
+            List<KeyValuePair<int, double>> retVal = new List<KeyValuePair<int, double>>();
 
             if (File.Exists(fileName))
             {
@@ -128,10 +129,18 @@ namespace SmartHomeManager.Model
                 foreach (var value in values)
                 {
                     helpdate = DateTime.Parse(value.Date);
-                    if (helpdate.Minute % 3 == 0 || helpdate.Minute == 7 || helpdate.Minute == 16 || helpdate.Minute == 22)
+
+                    if (helpdate.ToShortDateString() == selectedDate)
                     {
-                        Double.TryParse(value.Value, out help);
-                        retVal.Add(help);
+                        if (helpdate.Minute % 3 == 0 || helpdate.Minute == 7 || helpdate.Minute == 16 || helpdate.Minute == 22)
+                        {
+                            Double.TryParse(value.Value, out help);
+                            retVal.Add(new KeyValuePair<int, double>(counter++, help));
+                            if (counter == 25)
+                            {
+                                counter = 0;
+                            }
+                        }
                     }
                 }
             }

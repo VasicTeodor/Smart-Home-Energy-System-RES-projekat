@@ -6,67 +6,83 @@
              xmlns:local="clr-namespace:SmartHomeManager.Views"
              xmlns:vml="clr-namespace:SmartHomeManager.VML"
              vml:ViewModelLocator.AutoHookedUpViewModel="True"
+             xmlns:tool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+             xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"       
              mc:Ignorable="d" 
              d:DesignHeight="524" d:DesignWidth="742">
     <Grid>
-        <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="524" Stroke="Transparent" VerticalAlignment="Top" Width="742"/>
-        <StackPanel>
+        <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="524" Stroke="White" StrokeThickness="4" VerticalAlignment="Top" Width="742"/>
+        <Ellipse Fill="#FF55A938" HorizontalAlignment="Left" Height="148" Margin="558,25,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="160"/>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+        <DatePicker Name="datePicker" BorderBrush="Transparent" SelectedDateChanged="DatePicker_SelectedDateChanged" HorizontalAlignment="Left" Margin="210,103,0,0" VerticalAlignment="Top" Height="28" Width="32" RenderTransformOrigin="3.133,1.286"/>
+        <charting:Chart x:Name="reportChart" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" Margin="0,142,0,0" Height="382" Foreground="Black">
+            <charting:Chart.Axes>
+                <charting:LinearAxis Orientation="X" Title="h" Minimum="0" Maximum="24" Interval="1" Foreground="White"/>
+                <charting:LinearAxis Orientation="Y" Title="kW" Minimum="-20" Maximum="20" Interval="5" Foreground="White"/>
+            </charting:Chart.Axes>
+            <charting:LineSeries x:Name="KWConsumption"
+                                                Title="Consumption"  
+                                                DependentValuePath="Value" 
+                                                IndependentValuePath="Key"
+                                                IsSelectionEnabled="True">
+                <charting:LineSeries.DataPointStyle>
+                    <Style TargetType="{x:Type charting:LineDataPoint}">
+                        <Setter Property="Background" Value="#FFDE2727"/>
+                        <Setter Property="Height" Value="2"/>
+                        <Setter Property="Width" Value="2"/>
+                    </Style>
+                </charting:LineSeries.DataPointStyle>
+            </charting:LineSeries>
 
-                <ComboBox x:Name="cmbObj" ItemsSource="{Binding Lista}" Grid.Column="0" SelectedIndex="0" Grid.Row="0" Width="150" Height="30" Margin="5" SelectionChanged="cmbObj_SelectionChanged">
-                    <ComboBox.Background>
-                        <SolidColorBrush Color="#FF535353" Opacity="0.25"/>
-                    </ComboBox.Background>
-                </ComboBox>
-                <Button x:Name="btnShow" Content="Show" FontWeight="Bold" Grid.Column="1" Grid.Row="0" Width="150" Height="30" Margin="90,0,102,5" VerticalAlignment="Bottom" Click="btnShow_Click" Foreground="White">
-                    <Button.Background>
-                        <SolidColorBrush Color="#FFA2ACAE" Opacity="0.25"/>
-                    </Button.Background>
-                </Button>
+            <charting:LineSeries x:Name="KWPanels" 
+                                                Title="Panels"  
+                                                DependentValuePath="Value" 
+                                                IndependentValuePath="Key"
+                                                IsSelectionEnabled="True" Background="#FF1E51DA">
+                <charting:LineSeries.DataPointStyle>
+                    <Style TargetType="{x:Type charting:LineDataPoint}">
+                        <Setter Property="Background" Value="#FF1E51D8"/>
+                        <Setter Property="Height" Value="2"/>
+                        <Setter Property="Width" Value="2"/>
+                    </Style>
+                </charting:LineSeries.DataPointStyle>
+            </charting:LineSeries>
+            <charting:LineSeries x:Name="KWBattery" 
+                                                Title="Battery"  
+                                                DependentValuePath="Value" 
+                                                IndependentValuePath="Key"
+                                                IsSelectionEnabled="True" Background="#FF94DE20">
+                <charting:LineSeries.DataPointStyle>
+                    <Style TargetType="{x:Type charting:LineDataPoint}">
+                        <Setter Property="Background" Value="#FF46C12A"/>
+                        <Setter Property="Height" Value="2"/>
+                        <Setter Property="Width" Value="2"/>
+                    </Style>
+                </charting:LineSeries.DataPointStyle>
+            </charting:LineSeries>
+            <charting:LineSeries x:Name="KWUtility" 
+                                                Title="Utility"  
+                                                DependentValuePath="Value" 
+                                                IndependentValuePath="Key"
+                                                IsSelectionEnabled="True" Background="#FFECEC14">
+                <charting:LineSeries.DataPointStyle>
+                    <Style TargetType="{x:Type charting:LineDataPoint}">
+                        <Setter Property="Background" Value="#FFD1C819"/>
+                        <Setter Property="Height" Value="2"/>
+                        <Setter Property="Width" Value="2"/>
+                    </Style>
+                </charting:LineSeries.DataPointStyle>
+            </charting:LineSeries>
 
-            </Grid>
+        </charting:Chart>
+        <Label Content="Select a date" HorizontalAlignment="Left" Margin="49,90,0,0" VerticalAlignment="Top" Foreground="White" Width="156" FontSize="24"/>
+        <Label Content="Report" HorizontalAlignment="Left" Margin="276,10,0,0" VerticalAlignment="Top" Foreground="White" Width="171" FontSize="36"/>
+        <Label Content="Total cost" HorizontalAlignment="Left" Margin="576,50,0,0" VerticalAlignment="Top" Foreground="White" Width="98" FontSize="18"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="674,87,0,0" VerticalAlignment="Top" Foreground="White" Width="34" FontSize="36"/>
+        <Label Name="totalCost" Content="" HorizontalAlignment="Left" Margin="594,87,0,0" VerticalAlignment="Top" Foreground="White" Width="80" FontSize="36"/>
+        <Label Name="labelDate" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="260,90,0,0" VerticalAlignment="Top" Foreground="White" Width="158" FontSize="24"/>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="62"/>
-                    <ColumnDefinition Width="620"/>
-                </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0">
-                    <Label Content="max kW" FontSize="13" FontWeight="Bold" Foreground="White"/>
-                    <Label Content="min kW" FontWeight="Bold" FontSize="13" Margin="0 340 0 0" Foreground="White"/>
-                </StackPanel>
-
-                <Canvas Grid.Column="1" Name="canGraph" Width="600" Height="400" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Canvas.Background>
-                        <SolidColorBrush Color="White" Opacity="0.9"/>
-                    </Canvas.Background>
-                </Canvas>
-            </Grid>
-            <Grid Height="27">
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="0h" FontSize="15" FontWeight="Bold" Margin="75 0 0 0">
-                        <Label.Background>
-                            <SolidColorBrush Color="White" Opacity="0.5"/>
-                        </Label.Background>
-                    </Label>
-                    <Label Content="24h" FontSize="15" FontWeight="Bold" Margin="535 0 0 0">
-                        <Label.Background>
-                            <SolidColorBrush Color="White" Opacity="0.51"/>
-                        </Label.Background>
-                    </Label>
-                </StackPanel>
-            </Grid>
-
-        </StackPanel>
     </Grid>
 </UserControl>
