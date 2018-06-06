@@ -33,7 +33,7 @@ namespace SmartHomeManager.ViewModel
             }
         }
 
-        public void LoadBateries()
+        private void LoadBateries()
         {
            lock (Batteries)
            {

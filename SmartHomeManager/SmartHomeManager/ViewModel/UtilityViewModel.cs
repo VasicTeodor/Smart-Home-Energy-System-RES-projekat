@@ -17,6 +17,7 @@ namespace SmartHomeManager.ViewModel
         {
             Utilities = new ObservableCollection<Utility>();
             LoadUtilities();
+            Utilities[0].PayingPrice = SHES.price;
         }
 
         public Utility Utility
@@ -28,7 +29,7 @@ namespace SmartHomeManager.ViewModel
             }
         }
 
-        public void LoadUtilities()
+        private void LoadUtilities()
         {
             lock(Utilities)
             {

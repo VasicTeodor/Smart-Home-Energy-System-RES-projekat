@@ -24,6 +24,7 @@ namespace SmartHomeManager
         public static double consumersConsumption = 0;
         public static double priceToPay = 0;
         public static double utilityPower = 0;
+        public static double price = 7.3;
         public static bool shutDown = false;
         private double wholeConsumption = 0;
         private double importExportPower = 0;
@@ -191,6 +192,7 @@ namespace SmartHomeManager
                                     {
                                         UtilityViewModel.Utilities[0].PayingPrice = consumption;
                                     }
+                                    price = consumption;
                                 }
                             }
                         }

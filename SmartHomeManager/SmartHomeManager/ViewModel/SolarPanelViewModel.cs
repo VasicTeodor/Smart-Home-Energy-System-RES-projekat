@@ -31,7 +31,7 @@ namespace SmartHomeManager.ViewModel
             }
         }
 
-        public void LoadPanels()
+        private void LoadPanels()
         {
             lock (Panels)
             {

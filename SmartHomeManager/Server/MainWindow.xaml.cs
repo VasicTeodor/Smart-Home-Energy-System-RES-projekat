@@ -102,7 +102,7 @@ namespace Server
                 value = r.Next(1, 11); //Uzete su nasumicne i realne vrednosti
                 Byte[] data = null ;
 
-                if (DateTime.Now.Minute == 13 && DateTime.Now.Second <= 30)
+                if (DateTime.Now.Minute == 7 && DateTime.Now.Second <= 30)
                 {
                     rInt = numObjects;
                     objectNum = numObjects;

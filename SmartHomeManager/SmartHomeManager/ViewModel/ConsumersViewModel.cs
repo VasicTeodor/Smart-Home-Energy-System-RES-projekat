@@ -68,7 +68,9 @@ namespace SmartHomeManager.ViewModel
             int id1 = Consumers.IndexOf(SelectedConsumer);
             int id2 = SHES.devicesList.IndexOf(SelectedConsumer);
             SHES.devicesList[id2].Working = false;
+            SHES.devicesList[id2].Consumption = 0;
             Consumers[id1].Working = false;
+            Consumers[id1].Consumption = 0;
         }
 
         private void OnTurnOn()
