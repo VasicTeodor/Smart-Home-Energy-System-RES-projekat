@@ -11,9 +11,10 @@
     <Grid>
         <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="524" Stroke="Transparent" VerticalAlignment="Top" Width="742"/>
         <StackPanel Orientation="Horizontal" Height="50" Width="742" VerticalAlignment="Top">
-            <Button Name="buttonOn" Command="{Binding TurnOnCommand}" BorderBrush="Transparent" Height="40" Width="100" Margin="150,0,0,0" Content="ON" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="White"  Background="#FF63BF63" Click="buttonOn_Click"/>
-            <Button Name="buttonOff" BorderBrush="Transparent" Background="Red" Opacity="0.7" Height="40" Width="100" Margin="50,0,0,0"  Content="OFF" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold" Command="{Binding TurnOffCommand}"/>
-            <Button Name="buttonRemove" Command="{Binding RemoveCommand}" BorderBrush="Transparent" Background="Red" Opacity="0.7" Height="40" Width="150" Margin="50,0,0,0" Content="REMOVE" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold"/>
+            <Button Name="buttonOn" Command="{Binding TurnOnCommand}" BorderBrush="Transparent" Height="40" Width="100" Margin="125,0,0,0" Content="ON" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Foreground="White"  Background="#FF63BF63"/>
+            <Button Name="buttonOff" BorderBrush="Transparent" Background="#FFD82929" Height="40" Width="100" Margin="25,0,0,0"  Content="OFF" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold" Command="{Binding TurnOffCommand}"/>
+            <Button Name="AddConsumer" Cursor="Hand" Content="ADD" Foreground="White" FontWeight="Bold" Background="#FF63BF63" Opacity="100" Margin="25,0,0,0" BorderBrush="Transparent" VerticalAlignment="Center" Width="100" Height="40" Click="AddConsumer_Click" FontSize="18"/>
+            <Button Name="buttonRemove" Command="{Binding RemoveCommand}" BorderBrush="Transparent" Background="#FFD82929" Height="40" Width="100" Margin="25,5,0,5" Content="REMOVE" FontFamily="Segoe UI" FontSize="18" Foreground="White" FontWeight="Bold"/>
         </StackPanel>
         <DataGrid  x:Name="dataGridShes" ItemsSource="{Binding Consumers}" SelectedItem="{Binding SelectedConsumer}" Margin="0,50,0,0" BorderBrush="#FFD8D8D8" BorderThickness="4" RowHeight="220"  RowBackground="Transparent" HorizontalAlignment="Left" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" Height="464" VerticalAlignment="Top" Width="742" Background="Transparent" Foreground="White">
 
@@ -22,6 +23,8 @@
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                            <Setter Property="BorderThickness" Value="5"/>
                             <Setter Property="Foreground" Value="White" />
                         </Trigger>
                     </Style.Triggers>
@@ -34,14 +37,12 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Grid Background="Transparent" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="742">
-                                <Ellipse Fill="#FF55A938" HorizontalAlignment="Left" Height="136" Margin="309,41,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="150"/>
+                                <Ellipse Fill="#FF55A938" HorizontalAlignment="Left" Height="136" Margin="525,25,0,0" Stroke="Transparent" StrokeThickness="2" VerticalAlignment="Top" Width="150"/>
 
                                 <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
-                                <Label Name="lbl" Content="Consuming" HorizontalAlignment="Left" Margin="323,58,0,0" VerticalAlignment="Top" Height="43" Width="112" Foreground="White" FontSize="18"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="335,102,0,0" TextWrapping="Wrap" Text="{Binding Consumption}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
-                                <Label Content="kW" HorizontalAlignment="Left" Margin="410,113,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" RenderTransformOrigin="0.633,1.052"/>
-                                <Image Source="../images/s71.png" HorizontalAlignment="Left" Height="152" Margin="500,25,0,0" VerticalAlignment="Top" Width="174" Stretch="Fill"/>
-
+                                <Label Name="lbl" Content="Consuming" HorizontalAlignment="Left" Margin="539,42,0,0" VerticalAlignment="Top" Height="43" Width="112" Foreground="White" FontSize="18"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="551,86,0,0" TextWrapping="Wrap" Text="{Binding Consumption}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
+                                <Label Content="kW" HorizontalAlignment="Left" Margin="626,97,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" RenderTransformOrigin="0.633,1.052"/>
                             </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

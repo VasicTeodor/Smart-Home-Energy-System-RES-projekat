@@ -10,9 +10,15 @@ namespace SmartHomeManager.Model
     {
         public enum BatteryState : int
         {
-            IDLLE,
-            CHARGING,
-            DISCHARGING
+            Idlle,
+            Charging,
+            Discharging
+        }
+
+        public enum PanelState : int
+        {
+            Producing,
+            Idlle
         }
     }
 }

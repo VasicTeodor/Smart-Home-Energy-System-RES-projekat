@@ -60,7 +60,7 @@ namespace SmartHomeManager.ViewModel
             var remove = SelectedConsumer;
             Consumers.Remove(remove);
             SHES.devicesList.Remove(remove);
-            //SHES.importer.SerializeObject(Consumers );  DODATI PISANJE U CONFIG FAJL NOVIH UREDJAJA
+            SHES.importer.SerializeObject<ObservableCollection<Consumers>>(Consumers, "../../ConfigFiles/ConsumersConfig.xml");
         }
 
         private void OnTurnOff()

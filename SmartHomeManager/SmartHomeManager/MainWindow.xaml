@@ -53,8 +53,6 @@
         <Label Name="labelPanel" Content="" HorizontalAlignment="Left" Margin="51,48,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
         <Label Name="labelPanelPower" Content="" HorizontalAlignment="Left" Margin="131,79,0,0" VerticalAlignment="Top" Width="50" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
         <Label Content="kW" HorizontalAlignment="Left" Margin="175,85,0,0" VerticalAlignment="Top" Width="33" Height="25" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
-        <Image Source="images/s24.png" HorizontalAlignment="Left" Height="21" Margin="180,24,0,0" VerticalAlignment="Top" Width="26" Stretch="Fill"/>
-        <Image Source="images/s25.png" HorizontalAlignment="Left" Height="17" Margin="162,13,0,0" VerticalAlignment="Top" Width="24"/>
         <Label Content="Battery" HorizontalAlignment="Left" Margin="307,13,0,0" VerticalAlignment="Top" Width="154" Height="29" Foreground="White" FontWeight="Bold" FontSize="14"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="307,45,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="196"/>
         <Image Name="imgBattery" Source="images/s23.png" HorizontalAlignment="Left" Height="59" Margin="307,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
@@ -65,9 +63,9 @@
         <Label Content="min" HorizontalAlignment="Left" Margin="470,88,0,0" VerticalAlignment="Top" Width="33" Height="24" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
         <Label Content="Utility" HorizontalAlignment="Left" Margin="601,13,0,0" VerticalAlignment="Top" Width="154" Height="29" Foreground="White" FontWeight="Bold" FontSize="14"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="601,45,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="196"/>
-        <Image Name="imgUtility" Source="images/s22.png" HorizontalAlignment="Left" Height="59" Margin="601,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
-        <Label Name="labelUtility" Content="Consuming" HorizontalAlignment="Left" Margin="630,47,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
-        <Label Name="labelUtilityPower" Content="5.43" HorizontalAlignment="Left" Margin="722,79,0,0" VerticalAlignment="Top" Width="47" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
+        <Image Name="imgUtility" Source="images/s21.png" HorizontalAlignment="Left" Height="59" Margin="601,52,0,0" VerticalAlignment="Top" Width="24" Stretch="UniformToFill"/>
+        <Label Name="labelUtility" Content="Generating" HorizontalAlignment="Left" Margin="630,47,0,0" VerticalAlignment="Top" Width="124" Height="27" Foreground="White" FontWeight="Bold"/>
+        <Label Name="labelUtilityPower" Content="" HorizontalAlignment="Left" Margin="722,79,0,0" VerticalAlignment="Top" Width="47" Height="32" Foreground="White" FontWeight="Bold" FontSize="18"/>
         <Label Content="kW" HorizontalAlignment="Left" Margin="763,85,0,0" VerticalAlignment="Top" Width="28" Height="27" Foreground="White" RenderTransformOrigin="0.462,-0.099"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="900,45,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="196"/>
         <Label Content="Consumers" HorizontalAlignment="Left" Margin="900,13,0,0" VerticalAlignment="Top" Width="154" Height="29" Foreground="White" FontWeight="Bold" FontSize="14"/>
@@ -263,8 +261,5 @@
         <Label Content="Utility" HorizontalAlignment="Left" Margin="356,365,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="69"/>
         <Label Content="Report" HorizontalAlignment="Left" Margin="100,554,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="65"/>
         <Label Content="Battery" HorizontalAlignment="Left" Margin="308,554,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Height="34" Width="81"/>
-
-        <Image Source="images/s89.png" HorizontalAlignment="Left" Height="23" Margin="1068,19,0,0" VerticalAlignment="Top" Width="24"/>
-        <Button Name="AddConsumer" Cursor="Hand" Content="" Background="White" Opacity="0" HorizontalAlignment="Left" BorderBrush="Transparent" Margin="1064,16,0,0" VerticalAlignment="Top" Width="31" Height="28" Click="AddConsumer_Click"/>
     </Grid>
 </Window>

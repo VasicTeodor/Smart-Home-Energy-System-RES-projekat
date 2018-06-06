@@ -13,23 +13,6 @@ namespace SmartHomeManager.ViewModel
 
         public ChartViewModel()
         {
-            try
-            {
-                string line;
-                using (System.IO.StreamReader file = new System.IO.StreamReader("UtilityLog.txt"))
-                {
-                    while ((line = file.ReadLine()) != null)
-                    {
-                        string date = line.Split(':')[2].Trim().Split(' ')[0];
-                        DateTime myDate = DateTime.Parse(date);
-                        if (!Lista.Contains(myDate))
-                        {
-                            Lista.Add(myDate);
-                        }
-                    }
-                }
-            }
-            catch { }
         }
     }
 }

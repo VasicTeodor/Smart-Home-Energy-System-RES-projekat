@@ -35,32 +35,32 @@ namespace SmartHomeManager.Views
                         labelTime.Content = DateTime.Now.ToString("HH : mm : ss");
                         labelDate.Content = DateTime.Now.ToString(("MMMM dd, yyyy")) + ".";
 
-                        if (Int32.Parse(DateTime.Now.ToString("ss")) >= 20 && Int32.Parse(DateTime.Now.ToString("ss")) < 22)
+                        if (Int32.Parse(DateTime.Now.ToString("mm")) >= 50 && Int32.Parse(DateTime.Now.ToString("mm")) < 55)
                         {
                             imgFirst.Source = new BitmapImage(new Uri(@"/images/s82.png", UriKind.Relative));
                             imgSecond.Source = new BitmapImage(new Uri(@"/images/s76.png", UriKind.Relative));
                         }
-                        else if (Int32.Parse(DateTime.Now.ToString("ss")) >= 22 || Int32.Parse(DateTime.Now.ToString("ss")) < 6)
+                        else if (Int32.Parse(DateTime.Now.ToString("mm")) >= 55 || Int32.Parse(DateTime.Now.ToString("mm")) < 15)
                         {
                             imgFirst.Source = new BitmapImage(new Uri(@"/images/s81.ico", UriKind.Relative));
                             imgSecond.Source = new BitmapImage();
                         }
-                        else if (Int32.Parse(DateTime.Now.ToString("ss")) >= 6 && Int32.Parse(DateTime.Now.ToString("ss")) < 9)
+                        else if (Int32.Parse(DateTime.Now.ToString("mm")) >= 15 && Int32.Parse(DateTime.Now.ToString("mm")) < 22)
                         {
                             imgFirst.Source = new BitmapImage(new Uri(@"/images/s76.png", UriKind.Relative));
                             imgSecond.Source = new BitmapImage(new Uri(@"/images/s82.png", UriKind.Relative));
                         }
-                        else if (Int32.Parse(DateTime.Now.ToString("ss")) >= 9 && Int32.Parse(DateTime.Now.ToString("ss")) < 12)
+                        else if (Int32.Parse(DateTime.Now.ToString("mm")) >= 22 && Int32.Parse(DateTime.Now.ToString("mm")) < 30)
                         {
                             imgFirst.Source = new BitmapImage(new Uri(@"/images/s76.png", UriKind.Relative));
                             imgSecond.Source = new BitmapImage();
                         }
-                        else if (Int32.Parse(DateTime.Now.ToString("ss")) >= 12 && Int32.Parse(DateTime.Now.ToString("ss")) < 18)
+                        else if (Int32.Parse(DateTime.Now.ToString("mm")) >= 30 && Int32.Parse(DateTime.Now.ToString("mm")) < 45)
                         {
                             imgFirst.Source = new BitmapImage(new Uri(@"/images/s78.png", UriKind.Relative));
                             imgSecond.Source = new BitmapImage();
                         }
-                        else if (Int32.Parse(DateTime.Now.ToString("ss")) >= 18 && Int32.Parse(DateTime.Now.ToString("ss")) < 20)
+                        else if (Int32.Parse(DateTime.Now.ToString("mm")) >= 45 && Int32.Parse(DateTime.Now.ToString("mm")) < 50)
                         {
                             imgFirst.Source = new BitmapImage(new Uri(@"/images/s76.png", UriKind.Relative));
                             imgSecond.Source = new BitmapImage(new Uri(@"/images/s82.png", UriKind.Relative));

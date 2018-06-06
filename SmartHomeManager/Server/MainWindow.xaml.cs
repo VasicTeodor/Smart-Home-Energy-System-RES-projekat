@@ -99,8 +99,42 @@ namespace Server
                 TcpClient client = new TcpClient("localhost", port);
                 int rInt = r.Next(0, numObjects); //Brojimo od nule, maxValue nije ukljucen u range
                 objectNum = rInt;
-                value = r.Next(3, 13); //Uzete su nasumicne i realne vrednosti
-                Byte[] data = System.Text.Encoding.ASCII.GetBytes("Objekat_" + rInt + ":" + value);
+                value = r.Next(1, 11); //Uzete su nasumicne i realne vrednosti
+                Byte[] data = null ;
+
+                if (DateTime.Now.Minute == 13 && DateTime.Now.Second <= 30)
+                {
+                    rInt = numObjects;
+                    objectNum = numObjects;
+                    value = 5.2;
+                    data = System.Text.Encoding.ASCII.GetBytes("Objekat_" + rInt + ":" + value);
+                }
+                else if (DateTime.Now.Minute == 17 && DateTime.Now.Second <= 30)
+                {
+                    rInt = numObjects;
+                    objectNum = numObjects;
+                    value = 15.3;
+                    data = System.Text.Encoding.ASCII.GetBytes("Objekat_" + rInt + ":" + value);
+                }
+                else if(DateTime.Now.Minute == 35 && DateTime.Now.Second <= 30)
+                {
+                    rInt = numObjects;
+                    objectNum = numObjects;
+                    value = 15.3;
+                    data = System.Text.Encoding.ASCII.GetBytes("Objekat_" + rInt + ":" + value);
+                }
+                else if (DateTime.Now.Minute == 43 && DateTime.Now.Second <= 30)
+                {
+                    rInt = numObjects;
+                    objectNum = numObjects;
+                    value = 15.3;
+                    data = System.Text.Encoding.ASCII.GetBytes("Objekat_" + rInt + ":" + value);
+                }
+                else
+                {
+                    data = System.Text.Encoding.ASCII.GetBytes("Objekat_" + rInt + ":" + value);
+                }
+
                 NetworkStream stream = client.GetStream();
                 stream.Write(data, 0, data.Length);
 

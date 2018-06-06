@@ -43,10 +43,10 @@ namespace SmartHomeManager.ViewModel
 
         public void StartChraging()
         {
-            Batteries[0].State = Enums.BatteryState.CHARGING;
-            SHES.batteryState = Enums.BatteryState.CHARGING;
+            Batteries[0].State = Enums.BatteryState.Charging;
+            SHES.batteryState = Enums.BatteryState.Charging;
 
-            if (Batteries[0].State == Enums.BatteryState.CHARGING && Batteries[0].Capacity < Batteries[0].MaxCapacity)
+            if (Batteries[0].State == Enums.BatteryState.Charging && Batteries[0].Capacity < Batteries[0].MaxCapacity)
             {
                 Batteries[0].CapacityMin++;
 
@@ -59,22 +59,21 @@ namespace SmartHomeManager.ViewModel
                 SHES.batteryCapacity = Batteries[0].Capacity;
                 SHES.batteryCapacityMin = Batteries[0].CapacityMin;
 
-                SHES.importer.logService("BatteryLog.xml", "Battery", 0 - Batteries[0].MaxPower);
             }
             else
             {
-                Batteries[0].State = Enums.BatteryState.IDLLE;
-                SHES.batteryState = Enums.BatteryState.IDLLE;
+                Batteries[0].State = Enums.BatteryState.Idlle;
+                SHES.batteryState = Enums.BatteryState.Idlle;
             }
 
         }
 
         public void StartDischraging()
         {
-            Batteries[0].State = Enums.BatteryState.DISCHARGING;
-            SHES.batteryState = Enums.BatteryState.DISCHARGING;
+            Batteries[0].State = Enums.BatteryState.Discharging;
+            SHES.batteryState = Enums.BatteryState.Discharging;
 
-            if (Batteries[0].State == Enums.BatteryState.DISCHARGING && Batteries[0].Capacity > 0)
+            if (Batteries[0].State == Enums.BatteryState.Discharging && Batteries[0].Capacity > 0)
             {
 
                 Batteries[0].CapacityMin--;
@@ -87,20 +86,18 @@ namespace SmartHomeManager.ViewModel
 
                 SHES.batteryCapacity = Batteries[0].Capacity;
                 SHES.batteryCapacityMin = Batteries[0].CapacityMin;
-                SHES.importer.logService("BatteryLog.xml", "Battery", Batteries[0].MaxPower);
             }
             else
             {
-                Batteries[0].State = Enums.BatteryState.IDLLE;
-                SHES.batteryState = Enums.BatteryState.IDLLE;
+                Batteries[0].State = Enums.BatteryState.Idlle;
+                SHES.batteryState = Enums.BatteryState.Idlle;
             }
         }
 
         public void Idlle()
         {
-            Batteries[0].State = Enums.BatteryState.IDLLE;
-            SHES.batteryState = Enums.BatteryState.IDLLE;
-            SHES.importer.logService("BatteryLog.xml", "Battery", 0);
+            Batteries[0].State = Enums.BatteryState.Idlle;
+            SHES.batteryState = Enums.BatteryState.Idlle;
 
             SHES.batteryCapacity = Batteries[0].Capacity;
             SHES.batteryCapacityMin = Batteries[0].CapacityMin;

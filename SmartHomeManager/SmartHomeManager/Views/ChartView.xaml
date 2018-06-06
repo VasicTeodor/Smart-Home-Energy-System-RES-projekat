@@ -19,7 +19,7 @@
         <charting:Chart x:Name="reportChart" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" Margin="0,142,0,0" Height="382" Foreground="Black">
             <charting:Chart.Axes>
                 <charting:LinearAxis Orientation="X" Title="h" Minimum="0" Maximum="24" Interval="1" Foreground="White"/>
-                <charting:LinearAxis Orientation="Y" Title="kW" Minimum="-20" Maximum="20" Interval="5" Foreground="White"/>
+                <charting:LinearAxis Orientation="Y" Title="kW" Minimum="-20" Maximum="50" Interval="5" Foreground="White" ShowGridLines="True"/>
             </charting:Chart.Axes>
             <charting:LineSeries x:Name="KWConsumption"
                                                 Title="Consumption"  
@@ -79,8 +79,8 @@
         <Label Content="Select a date" HorizontalAlignment="Left" Margin="49,90,0,0" VerticalAlignment="Top" Foreground="White" Width="156" FontSize="24"/>
         <Label Content="Report" HorizontalAlignment="Left" Margin="276,10,0,0" VerticalAlignment="Top" Foreground="White" Width="171" FontSize="36"/>
         <Label Content="Total cost" HorizontalAlignment="Left" Margin="576,50,0,0" VerticalAlignment="Top" Foreground="White" Width="98" FontSize="18"/>
-        <Label Content="$" HorizontalAlignment="Left" Margin="674,87,0,0" VerticalAlignment="Top" Foreground="White" Width="34" FontSize="36"/>
-        <Label Name="totalCost" Content="" HorizontalAlignment="Left" Margin="594,87,0,0" VerticalAlignment="Top" Foreground="White" Width="80" FontSize="36"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="674,87,0,0" VerticalAlignment="Top" Foreground="White" Width="34" FontSize="26"/>
+        <Label Name="totalCost" Content="" HorizontalAlignment="Left" Margin="570,87,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="110" FontSize="28"/>
         <Label Name="labelDate" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="260,90,0,0" VerticalAlignment="Top" Foreground="White" Width="158" FontSize="24"/>
 
 

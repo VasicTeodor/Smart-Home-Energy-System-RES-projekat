@@ -27,8 +27,10 @@ namespace SmartHomeManager.Views
             this.DataContext = new SmartHomeManager.ViewModel.ConsumersViewModel();
         }
 
-        private void buttonOn_Click(object sender, RoutedEventArgs e)
+        private void AddConsumer_Click(object sender, RoutedEventArgs e)
         {
+            AddConsumerWindow addConsumer = new AddConsumerWindow();
+            addConsumer.ShowDialog();
         }
     }
 }

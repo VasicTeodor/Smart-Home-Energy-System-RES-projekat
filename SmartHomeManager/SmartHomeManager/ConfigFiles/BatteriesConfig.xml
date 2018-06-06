@@ -2,10 +2,10 @@
 <ArrayOfBattery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Battery>
     <name>Baterry</name>
-    <maxPower>5.23</maxPower>
-    <maxCapacity>10</maxCapacity>
+    <maxPower>9.4</maxPower>
+    <maxCapacity>6</maxCapacity>
     <Name>Baterry</Name>
-    <MaxPower>5.23</MaxPower>
-    <MaxCapacity>10</MaxCapacity>
+    <MaxPower>9.4</MaxPower>
+    <MaxCapacity>6</MaxCapacity>
   </Battery>
 </ArrayOfBattery>

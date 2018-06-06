@@ -44,23 +44,36 @@ namespace SmartHomeManager
         {
             Dispatcher.Invoke(() =>
             {
-                //labelPanel.Content = SHES.panelState;
+                labelPanel.Content = SHES.panelState;
                 labelPanelPower.Content = SHES.solarPnaelsPower;
                 labelBattery.Content = SHES.batteryState;
                 labelBatteryCapacity.Content = SHES.batteryCapacity;
                 labelBatteryCapacityMin.Content = SHES.batteryCapacityMin;
-                //labelUtilityPower.Content = SHES.utilityPower;
+                labelUtilityPower.Content = SHES.utilityPower;
                 labelConsumersConsumption.Content = SHES.consumersConsumption;
-                /* otprilike ovako nesto
-                if (SHES.panelState == generating)
+                
+                if (SHES.panelState == Enums.PanelState.Producing)
                 {
-                    imgPanel.Source = "images/s21.png";
+                    imgPanel.Source = new BitmapImage(new Uri(@"/images/s21.png", UriKind.Relative));
                 }
-                else if (SHES.panelState == nista)
+                else if (SHES.panelState == Enums.PanelState.Idlle)
                 {
-                    imgPanel.Source = "images/s23.png";
+                    imgPanel.Source = new BitmapImage(new Uri(@"/images/s23.png", UriKind.Relative));
                 }
-                */
+                
+                if(SHES.batteryState == Enums.BatteryState.Charging)
+                {
+                    imgBattery.Source = new BitmapImage(new Uri(@"/images/s22.png", UriKind.Relative));
+                }
+                else if(SHES.batteryState == Enums.BatteryState.Discharging)
+                {
+                    imgBattery.Source = new BitmapImage(new Uri(@"/images/s21.png", UriKind.Relative));
+                }
+                else
+                {
+                    imgBattery.Source = new BitmapImage(new Uri(@"/images/s23.png", UriKind.Relative));
+                }
+
             });
         }
 

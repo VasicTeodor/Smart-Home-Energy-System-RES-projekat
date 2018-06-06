@@ -17,7 +17,7 @@
                 <Style TargetType="DataGridCell">
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#FF254A1F"/>
+                            <Setter Property="Background" Value="Transparent"/>
                             <Setter Property="Foreground" Value="White" />
                         </Trigger>
                     </Style.Triggers>
@@ -35,14 +35,15 @@
                                 <Label Content="Utility" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Height="57" Width="256" Foreground="White" FontSize="32"/>
                                 <Rectangle Fill="Black" Opacity="0.5" HorizontalAlignment="Left" Height="247" Margin="23,250,0,0" Stroke="Transparent" StrokeThickness="2"  VerticalAlignment="Top" Width="517"/>
                                 <Image Source="../images/s58.png" HorizontalAlignment="Left" Height="411" Margin="552,40,0,0" VerticalAlignment="Top" Width="172" Stretch="Fill"/>
-                                <Label Content="Exchange power :" HorizontalAlignment="Left" Margin="36,262,0,0" VerticalAlignment="Top" Height="46" Width="196" Foreground="White" FontSize="24"/>
-                                <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="240,378,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="48"/>
-                                <Label Content="kW" HorizontalAlignment="Left" Margin="332,386,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
+                                <Label Content="Exchange power " HorizontalAlignment="Left" Margin="36,262,0,0" VerticalAlignment="Top" Height="46" Width="196" Foreground="White" FontSize="24"/>
+                                <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="300,350,0,0" TextWrapping="Wrap" Text="{Binding Power}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="48"/>
+                                <Label Content="kW" HorizontalAlignment="Left" Margin="410,358,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
                                 <Label Content="Generating" HorizontalAlignment="Left" Margin="586,451,0,0" VerticalAlignment="Top" Height="46" Width="108" Foreground="White" FontSize="20"/>
                                 <Label Content="Energy price" HorizontalAlignment="Left" Margin="380,75,0,0" VerticalAlignment="Top" Height="46" Width="128" Foreground="White" FontSize="20"/>
-                                <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="384,113,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="48"/>
-                                <Label Content="$" HorizontalAlignment="Left" Margin="463,121,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" RenderTransformOrigin="0.633,1.052"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="237,267,0,0" TextWrapping="Wrap" Text="positive" VerticalAlignment="Top" Height="46" Width="110" Foreground="White" FontSize="24"/>
+                                <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="384,125,0,0" TextWrapping="Wrap" Text="{Binding Price}" VerticalAlignment="Top" Height="54" Width="100" Foreground="White" FontSize="36"/>
+                                <Label Content="$" HorizontalAlignment="Left" Margin="485,121,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" RenderTransformOrigin="0.633,1.052"/>
+                                <Label Content="Current price (kW/h) :" HorizontalAlignment="Left" Margin="36,440,0,0" VerticalAlignment="Top" Height="46" Width="250" Foreground="White" FontSize="24"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="290,445,0,0" TextWrapping="Wrap" Text="{Binding PayingPrice}" VerticalAlignment="Top" Height="46" Width="110" Foreground="White" FontSize="24"/>
 
                             </Grid>
                         </DataTemplate>

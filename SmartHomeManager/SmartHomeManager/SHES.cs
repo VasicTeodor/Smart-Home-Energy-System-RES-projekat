@@ -16,11 +16,14 @@ namespace SmartHomeManager
     {
         public static DataIO importer = new DataIO();
         public static Enums.BatteryState batteryState;
+        public static Enums.PanelState panelState;
         public static double batteryPower = 0;
         public static double solarPnaelsPower = 0;
         public static double batteryCapacity = 0;
         public static double batteryCapacityMin = 0;
         public static double consumersConsumption = 0;
+        public static double priceToPay = 0;
+        public static double utilityPower = 0;
         public static bool shutDown = false;
         private double wholeConsumption = 0;
         private double importExportPower = 0;
@@ -42,6 +45,7 @@ namespace SmartHomeManager
 
             BatteryManagement();
             createListener();
+            MakeLog();
         }
 
         private void BatteryManagement()
@@ -50,14 +54,14 @@ namespace SmartHomeManager
             {
                 while (!shutDown)
                 {
-                    if (Int32.Parse(DateTime.Now.ToString("HH")) >= 0 && Int32.Parse(DateTime.Now.ToString("HH")) <= 20)
+                    if ((Int32.Parse(DateTime.Now.ToString("mm")) >= 7 && Int32.Parse(DateTime.Now.ToString("mm")) <= 15))// ovo je konverzija za minute, prave vrednosti su 3 i 6
                     {
                         lock (BatteryViewModel.Batteries)
                         {
                              battery.StartChraging();
                         }
                     }
-                    else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 11 && Int32.Parse(DateTime.Now.ToString("HH")) <= 12)
+                    else if ((Int32.Parse(DateTime.Now.ToString("mm")) >= 35 && Int32.Parse(DateTime.Now.ToString("mm")) <= 42))// ovo je konverzija za minute, prave vrednosti su 14 i 17
                     {
                         lock (BatteryViewModel.Batteries)
                         {
@@ -85,7 +89,7 @@ namespace SmartHomeManager
 
             var listeningThread = new Thread(() =>
             {
-                while (true)
+                while (!shutDown)
                 {
                     var tcpClient = tcp.AcceptTcpClient();
                     ThreadPool.QueueUserWorkItem(param =>
@@ -106,7 +110,7 @@ namespace SmartHomeManager
                              * duzinu liste koja sadrzi sve objekte pod monitoringom, odnosno
                              * njihov ukupan broj (NE BROJATI OD NULE, VEC POSLATI UKUPAN BROJ)
                              * */
-                            Byte[] data = System.Text.Encoding.ASCII.GetBytes(ConsumersViewModel.Consumers.Count.ToString());
+                            Byte[] data = System.Text.Encoding.ASCII.GetBytes((ConsumersViewModel.Consumers.Count).ToString());
                             stream.Write(data, 0, data.Length);
                         }
                         else
@@ -120,48 +124,75 @@ namespace SmartHomeManager
                             int deviceId = Int32.Parse((incomming.Split('_', ':'))[1]);
                             double consumption = double.Parse((incomming.Split('_', ':'))[2]);
 
-                            if (devicesList[deviceId].Working)
+                            if (deviceId != ConsumersViewModel.Consumers.Count)
                             {
-                                devicesList[deviceId].Consumption = consumption;
-                            }
 
-                            try
-                            {
-                                lock (ConsumersViewModel.Consumers)
+
+                                if (devicesList[deviceId].Working)
                                 {
-                                    if (ConsumersViewModel.Consumers[deviceId].Working)
+                                    devicesList[deviceId].Consumption = consumption;
+                                }
+                                else
+                                {
+                                    devicesList[deviceId].Consumption = 0;
+                                }
+
+                                try
+                                {
+                                    lock (ConsumersViewModel.Consumers)
                                     {
-                                        ConsumersViewModel.Consumers[deviceId].Consumption = consumption;
+                                        if (ConsumersViewModel.Consumers[deviceId].Working)
+                                        {
+                                            ConsumersViewModel.Consumers[deviceId].Consumption = consumption;
+                                        }
+                                        else
+                                        {
+                                            ConsumersViewModel.Consumers[deviceId].Consumption = 0;
+                                        }
                                     }
                                 }
-                            }
-                            catch { }
+                                catch { }
 
-                            wholeConsumption = 0;
+                                wholeConsumption = 0;
 
-                            foreach(var cons in devicesList)
-                            {
-                                wholeConsumption += cons.Consumption;
-                            }
+                                foreach (var cons in devicesList)
+                                {
+                                    wholeConsumption += cons.Consumption;
+                                }
 
-                            consumersConsumption = wholeConsumption;
+                                consumersConsumption = wholeConsumption;
 
-                            if (batteryState == Enums.BatteryState.CHARGING)
-                            {
-                                importExportPower = wholeConsumption - solarPnaelsPower + batteryPower;
-                            }
-                            else if(batteryState == Enums.BatteryState.DISCHARGING)
-                            {
-                                importExportPower = wholeConsumption - solarPnaelsPower - batteryPower;
+                                if (batteryState == Enums.BatteryState.Charging)
+                                {
+                                    importExportPower = wholeConsumption - solarPnaelsPower + batteryPower;
+                                }
+                                else if (batteryState == Enums.BatteryState.Discharging)
+                                {
+                                    importExportPower = wholeConsumption - solarPnaelsPower - batteryPower;
+                                }
+                                else
+                                {
+                                    importExportPower = wholeConsumption - solarPnaelsPower;
+                                }
+
+
+                                utilityPower = importExportPower;
+
+                                lock (UtilityViewModel.Utilities)
+                                {
+                                    priceToPay = utility.CalculatePrice(importExportPower);
+                                }
                             }
                             else
                             {
-                                importExportPower = wholeConsumption - solarPnaelsPower;
+                                if (deviceId == ConsumersViewModel.Consumers.Count)
+                                {
+                                    lock (UtilityViewModel.Utilities)
+                                    {
+                                        UtilityViewModel.Utilities[0].PayingPrice = consumption;
+                                    }
+                                }
                             }
-
-                            importer.logService("ConsumptionLog.xml", "Consumption", wholeConsumption);
-                            
-                            importer.logService("UtilityLog.xml", "Utility", importExportPower);
                         }
                     }, null);
                 }
@@ -178,6 +209,39 @@ namespace SmartHomeManager
             {
                 device.Working = false;
             }
+        }
+
+        private void MakeLog()
+        {
+            new Thread(() =>
+            {
+                while (!shutDown)
+                {
+                    importer.logService("SolarPanelsLog.xml", "SolarPanel", Math.Round(solarPnaelsPower, 2));
+
+                    importer.logService("UtilityLog.xml", "Utility", importExportPower);
+
+                    importer.logService("ConsumptionLog.xml", "Consumption", wholeConsumption);
+
+                    importer.logService("PriceLog.xml", "Price", priceToPay);
+
+                    if (batteryState == Enums.BatteryState.Charging)
+                    {
+                        importer.logService("BatteryLog.xml", "Battery", 0 - batteryPower);
+
+                    }
+                    else if (batteryState == Enums.BatteryState.Discharging)
+                    {
+                        importer.logService("BatteryLog.xml", "Battery", batteryPower);
+                    }
+                    else
+                    {
+                        importer.logService("BatteryLog.xml", "Battery", 0);
+                    }
+
+                    Thread.Sleep(150000);
+                }
+            }).Start();
         }
     }
 }

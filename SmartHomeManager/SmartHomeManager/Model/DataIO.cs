@@ -29,7 +29,7 @@ namespace SmartHomeManager.Model
                     stream.Close();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 //Log exception here
             }
@@ -63,7 +63,7 @@ namespace SmartHomeManager.Model
                     read.Close();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 //Log exception here
             }
@@ -96,13 +96,17 @@ namespace SmartHomeManager.Model
             }
             else
             {
-                FileStream s2 = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                XDocument doc = XDocument.Load(s2);
-                XElement school = doc.Element($"{item}s");
-                school.Add(new XElement($"{item}",
-                           new XElement("value", $"{input}"),
-                           new XElement("date", $"{DateTime.Now}")));
-                doc.Save(fileName);
+                try
+                {
+                    FileStream s2 = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    XDocument doc = XDocument.Load(s2);
+                    XElement school = doc.Element($"{item}s");
+                    school.Add(new XElement($"{item}",
+                               new XElement("value", $"{input}"),
+                               new XElement("date", $"{DateTime.Now}")));
+                    doc.Save(fileName);
+                }
+                catch { }
             }
         }
 
@@ -115,34 +119,38 @@ namespace SmartHomeManager.Model
 
             if (File.Exists(fileName))
             {
-                FileStream s2 = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
-                XDocument document = XDocument.Load(s2);
-
-                var values = from i in document.Descendants(item)
-                             select new
-                             {
-                                 Value = i.Element("value").Value,
-                                 Date = i.Element("date").Value
-                             };
-
-                foreach (var value in values)
+                try
                 {
-                    helpdate = DateTime.Parse(value.Date);
+                    FileStream s2 = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-                    if (helpdate.ToShortDateString() == selectedDate)
+                    XDocument document = XDocument.Load(s2);
+
+                    var values = from i in document.Descendants(item)
+                                 select new
+                                 {
+                                     Value = i.Element("value").Value,
+                                     Date = i.Element("date").Value
+                                 };
+
+                    foreach (var value in values)
                     {
-                        if (helpdate.Minute % 3 == 0 || helpdate.Minute == 7 || helpdate.Minute == 16 || helpdate.Minute == 22)
+                        helpdate = DateTime.Parse(value.Date);
+
+                        if (helpdate.ToShortDateString() == selectedDate)
                         {
-                            Double.TryParse(value.Value, out help);
-                            retVal.Add(new KeyValuePair<int, double>(counter++, help));
-                            if (counter == 25)
-                            {
-                                counter = 0;
-                            }
+                            //if (helpdate.Minute % 3 == 0 || helpdate.Minute == 7 || helpdate.Minute == 16 || helpdate.Minute == 22)
+                            //{
+                                Double.TryParse(value.Value, out help);
+                                retVal.Add(new KeyValuePair<int, double>(counter++, help));
+                                if (counter == 25)
+                                {
+                                    counter = 0;
+                                }
+                            //}
                         }
                     }
                 }
+                catch { }
             }
             return retVal;
         }

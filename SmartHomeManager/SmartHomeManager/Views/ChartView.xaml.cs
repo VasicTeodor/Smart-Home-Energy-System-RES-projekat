@@ -42,6 +42,7 @@ namespace SmartHomeManager.Views
             List<KeyValuePair<int, double>> solarPanelsPlotValues = new List<KeyValuePair<int, double>>();
             List<KeyValuePair<int, double>> utilityPlotValues = new List<KeyValuePair<int, double>>();
             List<KeyValuePair<int, double>> consumersPlotValues = new List<KeyValuePair<int, double>>();
+            List<KeyValuePair<int, double>> priceValues = new List<KeyValuePair<int, double>>();
             List<KeyValuePair<int, double>> help = new List<KeyValuePair<int, double>>();
 
             help = SHES.importer.ReadLog("UtilityLog.xml", "Utility", date);
@@ -55,6 +56,16 @@ namespace SmartHomeManager.Views
 
             help = SHES.importer.ReadLog("SolarPanelsLog.xml", "SolarPanel", date);
             solarPanelsPlotValues = LimitValues(help);
+
+            help = SHES.importer.ReadLog("PriceLog.xml", "Price", date);
+            priceValues = LimitValues(help);
+
+            double totalPrice = 0;
+            foreach(KeyValuePair<int, double> par in priceValues)
+            {
+                totalPrice += par.Value;
+            }
+            totalCost.Content = Math.Round(totalPrice, 2);
 
             KWUtility.ItemsSource = utilityPlotValues;
             KWBattery.ItemsSource = batteryPlotValues;

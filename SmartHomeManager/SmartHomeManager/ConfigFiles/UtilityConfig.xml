@@ -2,8 +2,10 @@
 <ArrayOfUtility xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Utility>
     <power>5.65</power>
-    <price>2</price>
+    <price>0</price>
+    <payingPrice>7.3</payingPrice>
     <Power>5.65</Power>
-    <Price>2</Price>
+    <Price>0</Price>
+    <PayingPrice>7.3</PayingPrice>
   </Utility>
 </ArrayOfUtility>

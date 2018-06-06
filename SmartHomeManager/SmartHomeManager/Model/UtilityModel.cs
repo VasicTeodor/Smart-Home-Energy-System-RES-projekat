@@ -13,6 +13,7 @@ namespace SmartHomeManager.Model
     public class Utility : INotifyPropertyChanged
     {
         private double power;
+        private double payingPrice;
         private double price;
 
         public double Power
@@ -24,6 +25,19 @@ namespace SmartHomeManager.Model
                 {
                     power = value;
                     RaisePropertyChanged("Power");
+                }
+            }
+        }
+
+        public double PayingPrice
+        {
+            get { return payingPrice; }
+            set
+            {
+                if (payingPrice != value)
+                {
+                    payingPrice = value;
+                    RaisePropertyChanged("PayingPrice");
                 }
             }
         }

@@ -47,7 +47,7 @@ namespace SmartHomeManager.ViewModel
                 {
                     currentPowerPanels = 0;
 
-                    if (Int32.Parse(DateTime.Now.ToString("HH")) >= 20 || Int32.Parse(DateTime.Now.ToString("HH")) < 6)
+                    if ((Int32.Parse(DateTime.Now.ToString("mm")) >= 50 || Int32.Parse(DateTime.Now.ToString("mm")) < 15))//20 i 6h
                     {
                         lock (Panels)
                         {
@@ -55,9 +55,10 @@ namespace SmartHomeManager.ViewModel
                             {
                                 p.CurrentPower = p.MaxPower * 0;
                             }
+                            SHES.panelState = Enums.PanelState.Idlle;
                         }
                     }
-                    else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 6 && Int32.Parse(DateTime.Now.ToString("HH")) < 8)
+                    else if ((Int32.Parse(DateTime.Now.ToString("mm")) >= 15 && Int32.Parse(DateTime.Now.ToString("mm")) < 20))//6 i 8h
                     {
                         lock (Panels)
                         {
@@ -65,9 +66,10 @@ namespace SmartHomeManager.ViewModel
                             {
                                 p.CurrentPower = p.MaxPower * 0.2;
                             }
+                            SHES.panelState = Enums.PanelState.Producing;
                         }
                     }
-                    else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 8 && Int32.Parse(DateTime.Now.ToString("HH")) < 11)
+                    else if (Int32.Parse(DateTime.Now.ToString("mm")) >= 20 && Int32.Parse(DateTime.Now.ToString("mm")) < 27)//8 i 11h
                     {
                         lock (Panels)
                         {
@@ -75,9 +77,10 @@ namespace SmartHomeManager.ViewModel
                             {
                                 p.CurrentPower = p.MaxPower * 0.5;
                             }
+                            SHES.panelState = Enums.PanelState.Producing;
                         }
                     }
-                    else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 11 && Int32.Parse(DateTime.Now.ToString("HH")) < 16)
+                    else if (Int32.Parse(DateTime.Now.ToString("mm")) >= 27 && Int32.Parse(DateTime.Now.ToString("mm")) < 40)//11 i 16h
                     {
                         lock (Panels)
                         {
@@ -85,9 +88,10 @@ namespace SmartHomeManager.ViewModel
                             {
                                 p.CurrentPower = p.MaxPower;
                             }
+                            SHES.panelState = Enums.PanelState.Producing;
                         }
                     }
-                    else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 16 && Int32.Parse(DateTime.Now.ToString("HH")) < 18)
+                    else if (Int32.Parse(DateTime.Now.ToString("mm")) >= 40 && Int32.Parse(DateTime.Now.ToString("mm")) < 45)//16 i 18h
                     {
                         lock (Panels)
                         {
@@ -95,9 +99,10 @@ namespace SmartHomeManager.ViewModel
                             {
                                 p.CurrentPower = p.MaxPower * 0.5;
                             }
+                            SHES.panelState = Enums.PanelState.Producing;
                         }
                     }
-                    else if (Int32.Parse(DateTime.Now.ToString("HH")) >= 18 && Int32.Parse(DateTime.Now.ToString("HH")) < 20)
+                    else if (Int32.Parse(DateTime.Now.ToString("mm")) >= 45 && Int32.Parse(DateTime.Now.ToString("mm")) < 50)//18 i 20h
                     {
                         lock (Panels)
                         {
@@ -105,6 +110,7 @@ namespace SmartHomeManager.ViewModel
                             {
                                 p.CurrentPower = p.MaxPower * 0.2;
                             }
+                            SHES.panelState = Enums.PanelState.Producing;
                         }
                     }
 
@@ -116,9 +122,7 @@ namespace SmartHomeManager.ViewModel
                         }
                     }
 
-                    SHES.solarPnaelsPower = currentPowerPanels;
-
-                    SHES.importer.logService("SolarPanelsLog.xml", "SolarPanel", currentPowerPanels);
+                    SHES.solarPnaelsPower = Math.Round(currentPowerPanels/1000, 2);
 
                     Thread.Sleep(1000);
                 }
