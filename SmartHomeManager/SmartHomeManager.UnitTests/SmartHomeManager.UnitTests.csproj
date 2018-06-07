@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="DataIOTest.cs" />
     <Compile Include="BatteryViewModelTest.cs" />
+    <Compile Include="ConsumersViewModelTest.cs" />
+    <Compile Include="PanelViewModelTest.cs" />
     <Compile Include="UtilityViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
