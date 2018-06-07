@@ -52,6 +52,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataIOTest.cs" />
+    <Compile Include="BatteryViewModelTest.cs" />
     <Compile Include="UtilityViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

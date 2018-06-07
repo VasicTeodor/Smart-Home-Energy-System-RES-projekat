@@ -13,7 +13,7 @@ namespace SmartHomeManager.Model
     public class Utility : INotifyPropertyChanged
     {
         private double power;
-        private double payingPrice;
+        private static double payingPrice = SHES.price;
         private double price;
 
         public double Power

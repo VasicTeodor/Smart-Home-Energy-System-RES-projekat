@@ -10,25 +10,44 @@ namespace SmartHomeManager.UnitTests
     {
         [Test]
         [TestCase(2)]
-        public void CalculatePrice_Test(double value)
+        [TestCase(3.5)]
+        [TestCase(-4)]
+        [TestCase(-3.54)]
+        [TestCase(0)]
+        public void CalculatePrice_GoodParameters_Test(double value)
         {
             UtilityViewModel utility = new UtilityViewModel();
-            Utility mock = new Utility { PayingPrice = 2, Power = 0, Price = 2 };
+            Utility u = new Utility { PayingPrice = 2, Power = 0, Price = 0 };
             UtilityViewModel.Utilities = new System.Collections.ObjectModel.ObservableCollection<Utility>();
-            UtilityViewModel.Utilities.Add(mock);
+            UtilityViewModel.Utilities.Add(u);
 
             var retVal = utility.CalculatePrice(value);
 
-            Assert.AreEqual(retVal, -4);
+            Assert.AreEqual(retVal, - value * u.PayingPrice);
         }
 
         [Test]
-        [TestCase("MikaPrase",5,5,5,Enums.BatteryState.Charging)]
-        public void Battery_ConstructorTest(string id, double power, double capacity, double capMin, Enums.BatteryState state)
+        [TestCase(2)]
+        public void CalculatePrice_SetPower_Test(double value)
         {
-            Battery baterija = new Battery { Name = id, Capacity = capacity, CapacityMin = capMin, MaxPower = power, State = state };
+            UtilityViewModel utility = new UtilityViewModel();
+            Utility u = new Utility { PayingPrice = 2, Power = 0, Price = 0 };
+            UtilityViewModel.Utilities = new System.Collections.ObjectModel.ObservableCollection<Utility>();
+            UtilityViewModel.Utilities.Add(u);
 
-            Assert.AreEqual(baterija.Name, id);
+            utility.CalculatePrice(value);
+            Assert.AreEqual(value, u.Power);
+        }
+
+        [Test]
+        [TestCase(5.43, 4, 2)]
+        public void Utility_ConstructorTest(double power, double payingPrice, double price)
+        {
+            Utility utility = new Utility { Power = power, PayingPrice = payingPrice, Price = price};
+
+            Assert.AreEqual(utility.Power, power);
+            Assert.AreEqual(utility.PayingPrice, payingPrice);
+            Assert.AreEqual(utility.Price, price);
         }
     }
 }
